@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteq-database.c
+string.h
+-
+cteqpdf.h
+/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+
+/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf-f77.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+cteqpdf.h
+/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+
+/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.c
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+cteqpdf.h
+/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+
+/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+
