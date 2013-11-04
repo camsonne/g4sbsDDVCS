@@ -55,7 +55,16 @@ public:
 	void SetPhMin(double v){fPhMin = v;}
 	void SetPhMax(double v){fPhMax = v;}
         void SetPairE(double v){fPairE = v;}
+        void SetQprime2(double v){fQPrime2 = v;}
         void SetPairPart(G4String v){fPairPart = v;}
+        void SetPairCAngle(double v){fPairCAngle = v;}
+        void SetPairRotAngle(double v){fPairRotAngle = v;}
+        void SetPairPhiAngle(double v){fPairPhiAngle = v;}
+        G4String GetPairPart(){return fPairPart;}
+        double GetPairCAngle(){return fPairCAngle;}
+        double GetPairPhiAngle(){return fPairPhiAngle;}
+  double GetPairRotAngle(){return fPairRotAngle;}
+
 	void SetHCALDist(double v){ fHCALdist = v;}
 
 	double GetHcalDist(){ return fHCALdist; }
@@ -63,10 +72,11 @@ public:
   	double GetPairE(){ return fPairE; }
 	double GetToFres(){ return fToFres; }
     private:
-  double fElectronE, fNucleonE, fBeamE, fPairE;
+  double fElectronE, fNucleonE, fBeamE, fPairE, fPairCAngle,fPairPhiAngle,fPairRotAngle;
+       
 	G4ThreeVector fElectronP, fNucleonP, fBeamP, fVert;
         G4LorentzVector fQM,fQP;
-	double fWeight, fQ2, fW2, fxbj, fSigma, fAperp, fApar;
+  double fWeight, fQ2, fW2, fxbj, fSigma, fAperp, fApar,fQPrime2;
         G4String fPairPart; 
 	double fBeamCur;
 	double fRunTime;
@@ -89,7 +99,8 @@ public:
 	void GenerateDIS( Nucl_t, G4LorentzVector, G4LorentzVector );
 	void GenerateFlat( Nucl_t, G4LorentzVector, G4LorentzVector );
   void GeneratePairSym( double_t theta, double phi, double Qprime2, G4LorentzVector & Qm, G4LorentzVector &Qp);
-  void GeneratePair( double_t theta, double phi, double Qprime2, G4LorentzVector & Qm, G4LorentzVector &Qp);
+  void GeneratePair( double_t theta, double phi, double E);
+  void GeneratePair();
   void GenerateDDVCS( Nucl_t, G4LorentzVector, G4LorentzVector);
 	void GenerateBeam( Nucl_t, G4LorentzVector, G4LorentzVector );
 

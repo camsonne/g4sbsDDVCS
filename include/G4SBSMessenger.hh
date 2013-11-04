@@ -63,7 +63,9 @@ class G4SBSMessenger : public G4UImessenger {
 	G4UIcmdWithADoubleAndUnit *beamECmd;
   	G4UIcmdWithADoubleAndUnit *pairECmd;
         G4UIcmdWithAString *pairPartCmd;
-
+        G4UIcmdWithADoubleAndUnit *pairCAngleCmd;
+        G4UIcmdWithADoubleAndUnit *pairPhiAngleCmd;
+        G4UIcmdWithADoubleAndUnit *pairRotAngleCmd;
 	G4UIcmdWithADoubleAndUnit *bbangCmd;
 	G4UIcmdWithADoubleAndUnit *bbdistCmd;
 
