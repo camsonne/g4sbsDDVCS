@@ -155,7 +155,17 @@ G4SBSMessenger::G4SBSMessenger(){
     pairPartCmd->SetGuidance("Pair Particle");
     pairPartCmd->SetParameterName("particle", false);
 
+    pairCAngleCmd = new G4UIcmdWithADoubleAndUnit("/g4sbs/pairCAngle",this);
+    pairCAngleCmd->SetGuidance("Pair Central angle");
+    pairCAngleCmd->SetParameterName("angle in degree", false);
+    
+    pairPhiAngleCmd = new G4UIcmdWithADoubleAndUnit("/g4sbs/pairPhiAngle",this);
+    pairPhiAngleCmd->SetGuidance("Pair Phi angle");
+    pairPhiAngleCmd->SetParameterName("angle in degree", false);
 
+     pairRotAngleCmd = new G4UIcmdWithADoubleAndUnit("/g4sbs/pairRotAngle",this);
+    pairRotAngleCmd->SetGuidance("Pair Rot angle");
+    pairRotAngleCmd->SetParameterName("angle in degree", false);
 
 }
 
@@ -375,6 +385,27 @@ void G4SBSMessenger::SetNewValue(G4UIcommand* cmd, G4String newValue){
       //fIO->SetBeamE(v);
     }
 
+      if( cmd == pairCAngleCmd ){
+      G4double v = pairECmd->GetNewDoubleValue(newValue);
+      fevgen->SetPairCAngle(v);
+      printf ("Pair central angle : %f\n",  fevgen->GetPairCAngle());
+      //fIO->SetBeamE(v);
+    }
+
+          if( cmd == pairPhiAngleCmd ){
+      G4double v = pairECmd->GetNewDoubleValue(newValue);
+      fevgen->SetPairPhiAngle(v);
+      printf ("Pair phi angle : %f\n",  fevgen->GetPairPhiAngle());
+      //fIO->SetBeamE(v);
+    }
+
+	    if( cmd == pairRotAngleCmd ){
+      G4double v = pairRotAngleCmd->GetNewDoubleValue(newValue);
+      fevgen->SetPairRotAngle(v);
+      printf ("Pair Rot angle : %f\n",  fevgen->GetPairRotAngle());
+      //fIO->SetBeamE(v);
+    }
+
      if( cmd == pairPartCmd ){
       fprigen->SetPairPart(newValue.data());
       //fIO->SetBeamE(v);
@@ -422,6 +453,7 @@ void G4SBSMessenger::SetNewValue(G4UIcommand* cmd, G4String newValue){
     if( cmd == hmagangCmd ){
       G4double v = hmagdistCmd->GetNewDoubleValue(newValue);
       fdetcon->Set48D48Ang(v);
+      fevgen->SetPairCAngle(v);
     }
 
 

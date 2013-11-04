@@ -33,9 +33,11 @@ G4SBSEventGen::G4SBSEventGen(){
     fRunTime  = 10.0*24.0*3600.0*s;
 
     fHCALdist = 17.0*m;
-
+    fPairCAngle = 0 * deg;
+    fPairPhiAngle = 0* deg;
+    fPairE= 1 * GeV;
     fToFres = 0.5*ns;
-
+    fQPrime2 = 2.5*GeV*GeV;
     // init DIS cteq pdf
     initcteqpdf();
 
@@ -254,7 +256,7 @@ void G4SBSEventGen::GenerateElastic( Nucl_t nucl, G4LorentzVector ei, G4LorentzV
     fNucleonP = nf.vect();
     fNucleonE = nf.e();
 //    printf("nfp_e = %f GeV\n", nfp.e()/GeV);
-    GeneratePair(q,fQP,fQM);
+    GeneratePair();
     fFinalNucl = nucl;
     return;
 }
@@ -429,11 +431,123 @@ void G4SBSEventGen::GenerateInelastic( Nucl_t nucl, G4LorentzVector ei, G4Lorent
 
     fNucleonP = nf.vect();
     fNucleonE = nf.e();
-    GeneratePair(q,fQP,fQM);
+    GeneratePair();
     return;
 }
 
-void G4SBSEventGen::GeneratePair(dpuble theta,double phi, double Qprime2,  G4LorentzVector &Qp , G4LorentzVector &Qm  ){
+void G4SBSEventGen::GeneratePair(double dtheta,double dphi,double dE  ){
+
+
+   fQP.setRThetaPhi(1*m,(fPairCAngle+dtheta)*deg,dphi*deg);
+   fQM.setRThetaPhi(1*m,(fPairCAngle-dtheta)*deg,(-dphi)*deg);
+   // mu1.setE(sbsgen->GetBeamE());
+   // mu2.setE(sbsgen->GetBeamE());
+   Double_t rE =  CLHEP::RandFlat::shoot(1.,5.);
+   fQP.setE(fPairE+dE);
+   fQM.setE(fPairE+dE);
+  
+ //  double MuonMass = 105.7 * MeV;
+ //  // qplus + qminus = qprime
+ //  // (qplus + qminus)^2 = qprime^2
+ //  // qplus^2 + qminus^2 + 2 qplus qminus = Qprime2
+ //  // 2 mumass^2 + 2 (EplusEminus - pplus.pminus ) = Qprime2
+ //  // 2 (EplusEminus - pplus.pminus ) = Qprime2 - 2 mumass^2
+ //  // 2 (EplusEminus - pplus.pminus.cos(pplus,pminus) ) = Qprime2 - 2 mumass^2
+ //  //Energy first lepton
+ //  //Muon Ep^2 - pp^2 = Mmu^2 
+ //  //Muon Em^2 - pm^2 = Mmu^2 
+ //  // q = lp + lm
+ //  // -Q2 = lp^2 + lm^2 +2( EpEm - pp pm cos (pp,pm))
+ //  // qprime  = 
+ //  double pq = CLHEP::RandFlat::shoot(0.0, sqrt(Qprime2) );
+ //  double Eq = sqrt ( Qprime2 + pq*pq);
+ //  double Em = CLHEP::RandFlat::shoot(0.0, Eq );
+ //  double Ep = CLHEP::RandFlat::shoot(0.0, sqrt(Qprime2-Em) );
+ //  double th = CLHEP::RandFlat::shoot(0.0, 180 );
+ //  double ph = CLHEP::RandFlat::shoot(0.0, 180 );
+  
+  
+ //  Qm.setE(Epair);
+ //  Qm.setRho(MuonMom);
+ //  Qm.setTheta(th*deg);
+ //  Qm.setPhi(ph*deg);
+ // printf ("Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
+ //  Qp.setE(Em);
+ //  Qp.setRho(MuonMom);
+ //  Qp.setTheta((th+180)*deg);
+ //  // Qm.print();
+ //  Qp.setPhi((ph+180)*deg);
+ //  //Qp.print();
+ //  printf ("Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
+ //  Qp.boost(q.vect(),0.5);
+ //  Qm.boost(q.vect(),0.5);
+ //  printf ("after boost Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
+ //  printf ("after boost Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
+ // 			  }
+}
+
+void G4SBSEventGen::GeneratePair(){
+
+   G4ThreeVector pairax,pairm,pairp;
+   G4ThreeVector rotax;
+   G4RotationMatrix pairrot;
+   pairm.setRThetaPhi(fPairE,(fPairCAngle),fPairPhiAngle);
+   pairp.setRThetaPhi(fPairE,(fPairCAngle),-fPairPhiAngle);
+   rotax.setRThetaPhi(fPairE,(fPairCAngle),0);
+   printf("Rotate by %f \n",fPairRotAngle);
+   pairrot.rotate(fPairRotAngle*90,rotax);
+   pairm = pairrot * pairm;
+   pairp = pairrot * pairp;
+   fQP.setRThetaPhi(fPairE,pairp.theta(),pairp.phi());
+   fQM.setRThetaPhi(fPairE,pairm.theta(),pairm.phi());
+
+   // mu1.setE(sbsgen->GetBeamE());
+   // mu2.setE(sbsgen->GetBeamE());
+   Double_t rE =  CLHEP::RandFlat::shoot(1.,5.);
+   fQP.setE(fPairE);
+   fQM.setE(fPairE);
+  
+ //  double MuonMass = 105.7 * MeV;
+ //  // qplus + qminus = qprime
+ //  // (qplus + qminus)^2 = qprime^2
+ //  // qplus^2 + qminus^2 + 2 qplus qminus = Qprime2
+ //  // 2 mumass^2 + 2 (EplusEminus - pplus.pminus ) = Qprime2
+ //  // 2 (EplusEminus - pplus.pminus ) = Qprime2 - 2 mumass^2
+ //  // 2 (EplusEminus - pplus.pminus.cos(pplus,pminus) ) = Qprime2 - 2 mumass^2
+ //  //Energy first lepton
+ //  //Muon Ep^2 - pp^2 = Mmu^2 
+ //  //Muon Em^2 - pm^2 = Mmu^2 
+ //  // q = lp + lm
+ //  // -Q2 = lp^2 + lm^2 +2( EpEm - pp pm cos (pp,pm))
+ //  // qprime  = 
+ //  double pq = CLHEP::RandFlat::shoot(0.0, sqrt(Qprime2) );
+ //  double Eq = sqrt ( Qprime2 + pq*pq);
+ //  double Em = CLHEP::RandFlat::shoot(0.0, Eq );
+ //  double Ep = CLHEP::RandFlat::shoot(0.0, sqrt(Qprime2-Em) );
+ //  double th = CLHEP::RandFlat::shoot(0.0, 180 );
+ //  double ph = CLHEP::RandFlat::shoot(0.0, 180 );
+  
+  
+ //  Qm.setE(Epair);
+ //  Qm.setRho(MuonMom);
+ //  Qm.setTheta(th*deg);
+ //  Qm.setPhi(ph*deg);
+ // printf ("Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
+ //  Qp.setE(Em);
+ //  Qp.setRho(MuonMom);
+ //  Qp.setTheta((th+180)*deg);
+ //  // Qm.print();
+ //  Qp.setPhi((ph+180)*deg);
+ //  //Qp.print();
+ //  printf ("Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
+ //  Qp.boost(q.vect(),0.5);
+ //  Qm.boost(q.vect(),0.5);
+ //  printf ("after boost Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
+ //  printf ("after boost Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
+ // 			  }
+}
+
+void G4SBSEventGen::GeneratePairSym(double theta,double phi, double Qprime2,  G4LorentzVector &Qp , G4LorentzVector &Qm  ){
   double MuonMass = 105.7 * MeV;
   // qplus + qminus = qprime
   // (qplus + qminus)^2 = qprime^2
@@ -441,79 +555,33 @@ void G4SBSEventGen::GeneratePair(dpuble theta,double phi, double Qprime2,  G4Lor
   // 2 mumass^2 + 2 (EplusEminus - pplus.pminus ) = Qprime2
   // 2 (EplusEminus - pplus.pminus ) = Qprime2 - 2 mumass^2
   // 2 (EplusEminus - pplus.pminus.cos(pplus,pminus) ) = Qprime2 - 2 mumass^2
-  double E = CLHEP::RandFlat::shoot(0.0, 180 );
-  double th = CLHEP::RandFlat::shoot(0.0, 180 );
+  double p = CLHEP::RandFlat::shoot(0.1,sqrt(Qprime2-MuonMass*MuonMass));
+  double th = acos(sqrt(Qprime2)/(2*p));
   double ph = CLHEP::RandFlat::shoot(0.0, 180 );
-  double Epair2 = q.m2()/2;
-  double Epair = q.m()/2;
-
-    printf ("q cart : %f  %f  %f  %f\n",q.px(),q.py(),q.pz(),q.e());
-    printf ("q mass : %f  %f  beta : %f  \n",q.m2(),q.m(),q.beta());
-    printf ("q polar : %f  %f  %f  %f\n",q.rho(),q.theta(),q.phi(),q.e());
-  if (q.m()>2*MuonMass)
-  {
-    double MuonMom = sqrt ( Epair2/4 - MuonMass*MuonMass);
-    printf ("E pair : %f\n",Epair);
-  
-  Qm.setE(Epair);
-  Qm.setRho(MuonMom);
-  Qm.setTheta(th*deg);
+ 
+    // printf ("q cart : %f  %f  %f  %f\n",q.px(),q.py(),q.pz(),q.e());
+    // printf ("q mass : %f  %f  beta : %f  \n",q.m2(),q.m(),q.beta());
+    // printf ("q polar : %f  %f  %f  %f\n",q.rho(),q.theta(),q.phi(),q.e());
+  if (0)
+    {
+  Qm.setE(sqrt(MuonMass*MuonMass+p*p));
+  Qm.setRho(p);
+  Qm.setTheta(th);
   Qm.setPhi(ph*deg);
  printf ("Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
-  Qp.setE(Epair);
-  Qp.setRho(MuonMom);
-  Qp.setTheta((th+180)*deg);
+  Qp.setE(sqrt(MuonMass*MuonMass+p*p));
+  Qp.setRho(p);
+  Qp.setTheta(-th);
   // Qm.print();
   Qp.setPhi((ph+180)*deg);
   //Qp.print();
   printf ("Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
-  Qp.boost(q.vect(),0.5);
-  Qm.boost(q.vect(),0.5);
+
   printf ("after boost Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
   printf ("after boost Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
-			  }
+    }
 }
 
-void G4SBSEventGen::GeneratePairSym(duuble theta,double phi, double Qprime2,  G4LorentzVector &Qp , G4LorentzVector &Qm  ){
-  double MuonMass = 105.7 * MeV;
-  // qplus + qminus = qprime
-  // (qplus + qminus)^2 = qprime^2
-  // qplus^2 + qminus^2 + 2 qplus qminus = Qprime2
-  // 2 mumass^2 + 2 (EplusEminus - pplus.pminus ) = Qprime2
-  // 2 (EplusEminus - pplus.pminus ) = Qprime2 - 2 mumass^2
-  // 2 (EplusEminus - pplus.pminus.cos(pplus,pminus) ) = Qprime2 - 2 mumass^2
-  double E = CLHEP::RandFlat::shoot(0.0,sqrt(Qprime2));
-  double th = CLHEP::RandFlat::shoot(0.0, 180 );
-  double ph = CLHEP::RandFlat::shoot(0.0, 180 );
-  double Epair2 = q.m2()/2;
-  double Epair = q.m()/2;
-
-    printf ("q cart : %f  %f  %f  %f\n",q.px(),q.py(),q.pz(),q.e());
-    printf ("q mass : %f  %f  beta : %f  \n",q.m2(),q.m(),q.beta());
-    printf ("q polar : %f  %f  %f  %f\n",q.rho(),q.theta(),q.phi(),q.e());
-  if (q.m()>2*MuonMass)
-  {
-    double MuonMom = sqrt ( Epair2/4 - MuonMass*MuonMass);
-    printf ("E pair : %f\n",Epair);
-  
-  Qm.setE(Epair);
-  Qm.setRho(MuonMom);
-  Qm.setTheta(th*deg);
-  Qm.setPhi(ph*deg);
- printf ("Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
-  Qp.setE(Epair);
-  Qp.setRho(MuonMom);
-  Qp.setTheta((th+180)*deg);
-  // Qm.print();
-  Qp.setPhi((ph+180)*deg);
-  //Qp.print();
-  printf ("Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
-  Qp.boost(q.vect(),0.5);
-  Qm.boost(q.vect(),0.5);
-  printf ("after boost Qm : %f  %f  %f  %f\n",Qm.getX(),Qm.getX(),Qm.getX(),Qm.getT());
-  printf ("after boost Qp : %f  %f  %f  %f\n",Qp.getX(),Qp.getX(),Qp.getX(),Qp.getT());
-			  }
-}
 
 void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, G4LorentzVector ei, G4LorentzVector ni){
     double minE = 0.*GeV;
@@ -570,7 +638,7 @@ void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, G4LorentzVector ei, G4LorentzVec
     // Let's assume single pion decay from that
 
     double W2 = hrest.mag2();
-    GeneratePair(q,fQP,fQM);
+    GeneratePair();
     if( W2 < pow(Mp,2.0) ){
 	// Kinematically not so good - abort
 	fSigma = 0.0;
@@ -800,7 +868,7 @@ void G4SBSEventGen::GenerateDIS( Nucl_t nucl, G4LorentzVector ei, G4LorentzVecto
 
     fNucleonP = G4ThreeVector();
     fNucleonE = -1e9;  // This ensures we won't generate a nucleon event
-    GeneratePair(q,fQP,fQM);
+    GeneratePair();
     return;
 }
 
@@ -819,11 +887,11 @@ void G4SBSEventGen::GenerateFlat( Nucl_t nucl, G4LorentzVector ei, G4LorentzVect
     
     G4LorentzVector efp = G4LorentzVector( efp3, efp3.mag() );
     G4LorentzVector q = ei-efp;
-     printf ("flat q cart : %f  %f  %f  %f\n",q.px(),q.py(),q.pz(),q.e());
-    printf ("flat q mass : %f  %f  beta : %f  \n",q.m2(),q.m(),q.beta());
-    printf ("flat q polar : %f  %f  %f  %f\n",q.rho(),q.theta(),q.phi(),q.e());
+    //  printf ("flat q cart : %f  %f  %f  %f\n",q.px(),q.py(),q.pz(),q.e());
+    // printf ("flat q mass : %f  %f  beta : %f  \n",q.m2(),q.m(),q.beta());
+    // printf ("flat q polar : %f  %f  %f  %f\n",q.rho(),q.theta(),q.phi(),q.e());
     G4LorentzVector nfp = ni+q;
-    GeneratePair(q,fQP,fQM);
+    GeneratePair();
     qfp3 = q.vect();
     nfp3 = nfp.vect();
 
@@ -854,7 +922,7 @@ void G4SBSEventGen::GenerateFlat( Nucl_t nucl, G4LorentzVector ei, G4LorentzVect
     fAperp    = 0.0;
 
     fFinalNucl = nucl;
-    GeneratePair(q,fQP,fQM);
+    
 }
 
 
