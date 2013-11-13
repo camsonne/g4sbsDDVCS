@@ -67,14 +67,14 @@ void G4SBSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
    // mu2.setRThetaPhi(1*m,(fPairCAngle-fPairDAngle)*deg,(-fPairDPhi)*deg);
    // mu1.setE(sbsgen->GetBeamE());
    // mu2.setE(sbsgen->GetBeamE())
-   // mu1=sbsgen->GetQM();
-   //mu2=sbsgen->GetQP();
+    mu1=sbsgen->GetQM();
+   mu2=sbsgen->GetQP();
    printf("Pair angles theta : %f phi : %f \n",sbsgen->GetPairCAngle(),sbsgen->GetPairPhiAngle());
-   mu1.setRThetaPhi(1*m,sbsgen->GetPairCAngle(),sbsgen->GetPairPhiAngle());
-   mu2.setRThetaPhi(1*m,sbsgen->GetPairCAngle(),-sbsgen->GetPairPhiAngle());
+   // mu1.setRThetaPhi(1*m,sbsgen->GetPairCAngle(),sbsgen->GetPairPhiAngle());
+   //mu2.setRThetaPhi(1*m,sbsgen->GetPairCAngle(),-sbsgen->GetPairPhiAngle());
    Double_t rE =  CLHEP::RandFlat::shoot(1.,5.);
-   mu1.setE(sbsgen->GetPairE());
-   mu2.setE(sbsgen->GetPairE());
+   // mu1.setE(sbsgen->GetPairE());
+   //mu2.setE(sbsgen->GetPairE());
    printf ("part %s\n",(fPairPart+"-").data());
    particle = particleTable->FindParticle(particleName=(fPairPart+"-").data());
    particleGun->SetParticleDefinition(particle);
@@ -139,19 +139,19 @@ void G4SBSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   particleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,0.*cm));
   */
 
-   if( sbsgen->GetKine() != kPair ){
-   particle = particleTable->FindParticle(particleName="mu-");
-   particleGun->SetParticleDefinition(particle);
-   particleGun->SetParticleMomentumDirection(sbsgen->GetQM().vect().unit());
-   particleGun->SetParticleEnergy(sbsgen->GetQM().e());
-   particleGun->SetParticlePosition(sbsgen->GetV());
-   particle = particleTable->FindParticle(particleName="mu+");
-   particleGun->SetParticleDefinition(particle);
-   particleGun->SetParticleMomentumDirection(sbsgen->GetQP().vect().unit());
-   particleGun->SetParticleEnergy(sbsgen->GetQP().e());
-   particleGun->SetParticlePosition(sbsgen->GetV());
-   particleGun->GeneratePrimaryVertex(anEvent);
-    }
+   // if( sbsgen->GetKine() != kPair ){
+   // particle = particleTable->FindParticle(particleName="mu-");
+   // particleGun->SetParticleDefinition(particle);
+   // particleGun->SetParticleMomentumDirection(sbsgen->GetQM().vect().unit());
+   // particleGun->SetParticleEnergy(sbsgen->GetQM().e());
+   // particleGun->SetParticlePosition(sbsgen->GetV());
+   // particle = particleTable->FindParticle(particleName="mu+");
+   // particleGun->SetParticleDefinition(particle);
+   // particleGun->SetParticleMomentumDirection(sbsgen->GetQP().vect().unit());
+   // particleGun->SetParticleEnergy(sbsgen->GetQP().e());
+   // particleGun->SetParticlePosition(sbsgen->GetV());
+   // particleGun->GeneratePrimaryVertex(anEvent);
+   //  }
 
   // Only do final nucleon for generators other than
   // the generic beam generator
