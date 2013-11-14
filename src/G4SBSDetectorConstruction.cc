@@ -796,7 +796,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAll()
   double hcalheight = 330.0*cm;
   double hcalwidth  = 165.0*cm;
   double hcaldepth  = 101.0*cm;
-  double hcalr = fHCALdist+hcaldepth/2.0;
+  double hcalr = fHCALdist+hcaldepth/2.0-5*m;
 
   G4RotationMatrix *hcalrm = new G4RotationMatrix;
   hcalrm->rotateY(-f48D48ang);
@@ -820,26 +820,26 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAll()
   hcallog->SetSensitiveDetector(HCalSD);
   hcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
 
- // HCAL2 
- //    hcalr = fHCALdist+hcaldepth/2.0+5*m;
- // G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
- //  G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
+  // HCAL2 
+    hcalr = fHCALdist+hcaldepth/2.0+5*m;
+ G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
+  G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
      
- //  new G4PVPlacement(hcalrm, G4ThreeVector(hcalr*sin(f48D48ang), 0.0, hcalr*cos(f48D48ang) ), hcallog2,
- // 	      "hcalphys2", WorldLog, false, 0, false); 
+  new G4PVPlacement(hcalrm, G4ThreeVector(hcalr*sin(f48D48ang), 0.0, hcalr*cos(f48D48ang) ), hcallog2,
+ 	      "hcalphys2", WorldLog, false, 0, false); 
 
-  // G4String HCALSDname = "G4SBS/HCAL";
-  // G4String HCALcolname = "HCALcol";
-  // G4SBSCalSD* HCalSD;
+  G4String HCAL2SDname = "G4SBS/HCAL2";
+  G4String HCAL2colname = "HCAL2col";
+  G4SBSCalSD* HCal2SD;
 
-  // if( !(HCalSD = (G4SBSCalSD*) SDman->FindSensitiveDetector(HCALSDname)) ){
-  //     HCalSD = new G4SBSCalSD( HCALSDname, HCALcolname );
-  //     SDman->AddNewDetector(HCalSD);
-  // }
+  if( !(HCal2SD = (G4SBSCalSD*) SDman->FindSensitiveDetector(HCAL2SDname)) ){
+      HCal2SD = new G4SBSCalSD( HCAL2SDname, HCAL2colname );
+      SDman->AddNewDetector(HCal2SD);
+  }
 
-  // SDman->AddNewDetector(HCalSD);
-  // hcallog->SetSensitiveDetector(HCalSD);
-  // hcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
+  SDman->AddNewDetector(HCalSD);
+  hcallog->SetSensitiveDetector(HCalSD);
+  hcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
 
 
 
@@ -1197,7 +1197,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
 
   /////////////////////////////////////////////////////////
   G4RotationMatrix *hcalrm = new G4RotationMatrix;
-  hcalrm->rotateY(-f48D48ang);
+  //hcalrm->rotateY(-f48D48ang);
 
   // SBS box
 
@@ -1244,12 +1244,12 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
 	  gemh[i] = 150.0*cm;
       } else if( i < 10 ) {
 	  gemz[i] = pairspac*((i-6)/2) + (i%2)*gemdsep + 1.32*m + 7*cm ;
-	  gemw[i] = 50.0*cm;
+	  gemw[i] = 200.0*cm;
 	  gemh[i] = 200.0*cm;
       } else {
 	  gemz[i] = pairspac*((i-10)/2) + (i%2)*gemdsep + 2.43*m + 7*cm ;
 	  gemw[i] = 200.0*cm;
-	  gemh[i] = 300.0*cm;
+	  gemh[i] = 200.0*cm;
       }
 
       //printf("i = %d  z = %f\n", i, gemz[i]/m);
@@ -1361,7 +1361,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   G4Box *hcalbox = new G4Box("hcalbox", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
   G4LogicalVolume* hcallog = new G4LogicalVolume(hcalbox, Lead, "hcallog");
 
-  new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, detoffset + 2.97*m + hcaldepth/2.0 ), hcallog,
+  new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, detoffset + 2.97*m + hcaldepth/2.0 - 1*m ), hcallog,
 	      "hcalphys", sbslog, false, 0, false);
 
   G4String HCALSDname = "G4SBS/HCAL";
@@ -1377,27 +1377,35 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   hcallog->SetSensitiveDetector(HCalSD);
   //  hcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
 
+  //  G4RotationMatrix *hcalrm = new G4RotationMatrix;
+  hcalrm->rotateY(-f48D48ang);
 
   //HCAL2 
    hcalheight = 330.0*cm;
    hcalwidth  = 165.0*cm;
    hcaldepth  = 10.0*cm;
 
-//  G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
-//   G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
-//        new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, detoffset + 2.97*m + hcaldepth + 3.5*m ), hcallog2,	      "hcalphys2", sbslog, false, 0, false); 
+double hcalr = fHCALdist+hcaldepth/2.0+ 3.1*m;
 
-// G4String HCAL2SDname = "G4SBS/HCA2L";
-//   G4String HCAL2colname = "HCAL2col";
-//   G4SBSCalSD* HCal2SD;
+G4RotationMatrix *hcalrm2 = new G4RotationMatrix;
+  hcalrm2->rotateY(-f48D48ang);
 
-//   if( !(HCal2SD = (G4SBSCalSD*) SDman->FindSensitiveDetector(HCAL2SDname)) ){
-//       HCal2SD = new G4SBSCalSD( HCAL2SDname, HCAL2colname );
-//       SDman->AddNewDetector(HCal2SD);
-//   }
+  G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
+   G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
+ new G4PVPlacement(hcalrm2, G4ThreeVector(hcalr*sin(f48D48ang), 0.0, hcalr*cos(f48D48ang) ), hcallog2,
+ 	      "hcalphys2", WorldLog, false, 0, false); 
 
-//   SDman->AddNewDetector(HCal2SD);
-//   hcallog->SetSensitiveDetector(HCal2SD);
+ G4String HCAL2SDname = "G4SBS/HCA2L";
+   G4String HCAL2colname = "HCAL2col";
+   G4SBSCalSD* HCal2SD;
+
+   if( !(HCal2SD = (G4SBSCalSD*) SDman->FindSensitiveDetector(HCAL2SDname)) ){
+       HCal2SD = new G4SBSCalSD( HCAL2SDname, HCAL2colname );
+       SDman->AddNewDetector(HCal2SD);
+   }
+
+   SDman->AddNewDetector(HCal2SD);
+   hcallog->SetSensitiveDetector(HCal2SD);
 
   //--------- 48D48 -------------------------------
 

@@ -67,7 +67,7 @@ void G4SBSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
    // mu2.setRThetaPhi(1*m,(fPairCAngle-fPairDAngle)*deg,(-fPairDPhi)*deg);
    // mu1.setE(sbsgen->GetBeamE());
    // mu2.setE(sbsgen->GetBeamE())
-   sbsgen->GeneratePairAcc();
+   sbsgen->GeneratePair();
    mu1=sbsgen->GetQM();
    mu2=sbsgen->GetQP();
    fIO->SetPairM(mu1);
