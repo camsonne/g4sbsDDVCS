@@ -5,6 +5,7 @@
 #include "TLorentzVector.h"
 #include "TObject.h"
 #include "G4Run.hh"
+#include "G4LorentzVector.hh"
 
 class TFile;
 class TTree;
@@ -64,6 +65,22 @@ class G4SBSIO {
 	void SetCalData(cal_t cd){ caldata = cd; }
 	void SetEventData(ev_t ed){ evdata = ed; }
 	void SetHitData(hit_t ht){ hitdata = ht; }
+        void SetPairM(G4LorentzVector qm)
+  {  
+      
+    pairMgen.SetPx(qm.px());
+      pairMgen.SetPy(qm.py());
+      pairMgen.SetPz(qm.pz());
+      pairMgen.SetE(qm.e());
+      }
+    void SetPairP(G4LorentzVector qm)
+  {  
+      
+    pairPgen.SetPx(qm.px());
+      pairPgen.SetPy(qm.py());
+      pairPgen.SetPz(qm.pz());
+      pairPgen.SetE(qm.e());
+      }
 	void FillTree();
 	void WriteTree();
 
@@ -79,7 +96,7 @@ class G4SBSIO {
     private:
 	TFile *fFile;
 	TTree *fTree;
-
+        TLorentzVector pairPgen, pairMgen;
 	ev_t evdata;
 	gen_t gendata;
 	tr_t trdata;

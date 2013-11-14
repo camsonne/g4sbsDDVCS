@@ -71,6 +71,8 @@ public:
   //	double GetBeamE(){ return fBeamE; }
   	double GetPairE(){ return fPairE; }
 	double GetToFres(){ return fToFres; }
+  void GeneratePair();
+  void GeneratePairAcc();
     private:
   double fElectronE, fNucleonE, fBeamE, fPairE, fPairCAngle,fPairPhiAngle,fPairRotAngle;
        
@@ -100,7 +102,6 @@ public:
 	void GenerateFlat( Nucl_t, G4LorentzVector, G4LorentzVector );
   void GeneratePairSym( double_t theta, double phi, double Qprime2, G4LorentzVector & Qm, G4LorentzVector &Qp);
   void GeneratePair( double_t theta, double phi, double E);
-  void GeneratePair();
   void GenerateDDVCS( Nucl_t, G4LorentzVector, G4LorentzVector);
 	void GenerateBeam( Nucl_t, G4LorentzVector, G4LorentzVector );
 
