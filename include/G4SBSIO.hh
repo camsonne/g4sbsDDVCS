@@ -63,6 +63,7 @@ class G4SBSIO {
 	void SetFilename(const char *fn){strcpy(fFilename, fn);}
 	void SetTrackData(tr_t td){ trdata = td; }
 	void SetCalData(cal_t cd){ caldata = cd; }
+  	void SetCal2Data(cal_t cd){ cal2data = cd; }
 	void SetEventData(ev_t ed){ evdata = ed; }
 	void SetHitData(hit_t ht){ hitdata = ht; }
         void SetPairM(G4LorentzVector qm)
@@ -101,6 +102,7 @@ class G4SBSIO {
 	gen_t gendata;
 	tr_t trdata;
 	cal_t caldata;
+  	cal_t cal2data;
 	hit_t hitdata;
   TLorentzVector fQm,fQp;
 	char fFilename[255];
