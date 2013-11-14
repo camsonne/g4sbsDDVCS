@@ -19,7 +19,7 @@
 
 #include "G4SBSIO.hh"
 
-#define MAXHIT 200
+#define MAXHIT 10000
 
 G4SBSEventAction::G4SBSEventAction()
 {
@@ -83,20 +83,20 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
   gemCollID   = SDman->GetCollectionID(colNam="GEMcol");
   hcalCollID  = SDman->GetCollectionID(colNam="HCALcol");
   bbcalCollID = SDman->GetCollectionID(colNam="BBCalcol");
-  TCollID = SDman->GetCollectionID(colNam="Tcol");
+  // TCollID = SDman->GetCollectionID(colNam="Tcol");
   
    //G4cout << ">>> Event " << evt->GetEventID() << G4endl;
   
   G4HCofThisEvent * HCE = evt->GetHCofThisEvent();
   G4SBSCalHitsCollection* bbcalHC    = 0;
   G4SBSCalHitsCollection* hcalHC = 0;
-  G4SBSCalHitsCollection* THC = 0;
+  //  G4SBSCalHitsCollection* THC = 0;
   G4SBSGEMHitsCollection* gemHC = 0;
   if(HCE)
     {
       gemHC   = (G4SBSGEMHitsCollection*)(HCE->GetHC(gemCollID));
       hcalHC  = (G4SBSCalHitsCollection*)(HCE->GetHC(hcalCollID));
-      THC = (G4SBSCalHitsCollection*)(HCE->GetHC(TCollID));
+      //  THC = (G4SBSCalHitsCollection*)(HCE->GetHC(TCollID));
       bbcalHC = (G4SBSCalHitsCollection*)(HCE->GetHC(bbcalCollID));
     }
 
@@ -111,66 +111,8 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
   caldata.bcndata = 0;
   caldata.hcndata = 0;
 
-  if(THC&&0) {
-      if( THC->entries() > 0 ){
-	  hasbb = true;
-
-	  double xsum = 0.0;
-	  double ysum = 0.0;
-	  double esum = 0.0;
-
-	  caldata.bcndata = THC->entries();
-	  for( i = 0; i < THC->entries(); i++ ){
-	      xsum += (*THC)[i]->GetPos().x()*(*THC)[i]->GetEdep();
-	      ysum += (*THC)[i]->GetPos().y()*(*THC)[i]->GetEdep();
-	      esum += (*THC)[i]->GetEdep();
-
-	      caldata.bcx[i] = (*THC)[i]->GetPos().x()/cm;
-	      caldata.bcy[i] = (*THC)[i]->GetPos().y()/cm;
-	      caldata.bce[i] = (*THC)[i]->GetEdep()/GeV;
-
-	      caldata.bcpid[i] = (*THC)[i]->GetPID();
-	      caldata.bcmid[i] = (*THC)[i]->GetMID();
-	      caldata.bctrid[i] = (*THC)[i]->GetTrID();
-	  }
-	  
-	  //  Energy weighted sum
-	  trdata.bcx = xsum/esum/cm; 
-	  trdata.bcy = ysum/esum/cm;
-      }
-  }
-
-
-  if(bbcalHC) {
-      if( bbcalHC->entries() > 0 ){
-	  hasbb = true;
-
-	  double xsum = 0.0;
-	  double ysum = 0.0;
-	  double esum = 0.0;
-
-	  caldata.bcndata = bbcalHC->entries();
-	  for( i = 0; i < bbcalHC->entries(); i++ ){
-	      xsum += (*bbcalHC)[i]->GetPos().x()*(*bbcalHC)[i]->GetEdep();
-	      ysum += (*bbcalHC)[i]->GetPos().y()*(*bbcalHC)[i]->GetEdep();
-	      esum += (*bbcalHC)[i]->GetEdep();
-
-	      caldata.bcx[i] = (*bbcalHC)[i]->GetPos().x()/cm;
-	      caldata.bcy[i] = (*bbcalHC)[i]->GetPos().y()/cm;
-	      caldata.bce[i] = (*bbcalHC)[i]->GetEdep()/GeV;
-
-	      caldata.bcpid[i] = (*bbcalHC)[i]->GetPID();
-	      caldata.bcmid[i] = (*bbcalHC)[i]->GetMID();
-	      caldata.bctrid[i] = (*bbcalHC)[i]->GetTrID();
-	  }
-	  
-	  //  Energy weighted sum
-	  trdata.bcx = xsum/esum/cm; 
-	  trdata.bcy = ysum/esum/cm;
-      }
-  }
-  
-  if(hcalHC) {
+   if(hcalHC) {
+     //  printf(" HCAL hits  %d \n",hcalHC->entries());
       if( hcalHC->entries() > 0 ){
 	  hashcal = true;
 
@@ -225,9 +167,68 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	  double cosang = q3m.unit()*path.unit();
 	  if( cosang > 1.0 ){ cosang = 1.0; } //  Apparent numerical problems in this dot product
 	  trdata.hcdang = acos(cosang);
+   
+
+  // if(THC&&0) {
+  //     if( THC->entries() > 0 ){
+  // 	  hasbb = true;
+
+  // 	  double xsum = 0.0;
+  // 	  double ysum = 0.0;
+  // 	  double esum = 0.0;
+
+  // 	  caldata.bcndata = THC->entries();
+  // 	  for( i = 0; i < THC->entries(); i++ ){
+  // 	      xsum += (*THC)[i]->GetPos().x()*(*THC)[i]->GetEdep();
+  // 	      ysum += (*THC)[i]->GetPos().y()*(*THC)[i]->GetEdep();
+  // 	      esum += (*THC)[i]->GetEdep();
+
+  // 	      caldata.bcx[i] = (*THC)[i]->GetPos().x()/cm;
+  // 	      caldata.bcy[i] = (*THC)[i]->GetPos().y()/cm;
+  // 	      caldata.bce[i] = (*THC)[i]->GetEdep()/GeV;
+
+  // 	      caldata.bcpid[i] = (*THC)[i]->GetPID();
+  // 	      caldata.bcmid[i] = (*THC)[i]->GetMID();
+  // 	      caldata.bctrid[i] = (*THC)[i]->GetTrID();
+  // 	  }
+	  
+  // 	  //  Energy weighted sum
+  // 	  trdata.bcx = xsum/esum/cm; 
+  // 	  trdata.bcy = ysum/esum/cm;
+  //     }
+  // }
+
+
+  if(bbcalHC) {
+      if( bbcalHC->entries() > 0 ){
+	  hasbb = true;
+
+	  double xsum = 0.0;
+	  double ysum = 0.0;
+	  double esum = 0.0;
+
+	  caldata.bcndata = bbcalHC->entries();
+	  for( i = 0; i < bbcalHC->entries(); i++ ){
+	      xsum += (*bbcalHC)[i]->GetPos().x()*(*bbcalHC)[i]->GetEdep();
+	      ysum += (*bbcalHC)[i]->GetPos().y()*(*bbcalHC)[i]->GetEdep();
+	      esum += (*bbcalHC)[i]->GetEdep();
+
+	      caldata.bcx[i] = (*bbcalHC)[i]->GetPos().x()/cm;
+	      caldata.bcy[i] = (*bbcalHC)[i]->GetPos().y()/cm;
+	      caldata.bce[i] = (*bbcalHC)[i]->GetEdep()/GeV;
+
+	      caldata.bcpid[i] = (*bbcalHC)[i]->GetPID();
+	      caldata.bcmid[i] = (*bbcalHC)[i]->GetMID();
+	      caldata.bctrid[i] = (*bbcalHC)[i]->GetTrID();
+	  }
+	  
+	  //  Energy weighted sum
+	  trdata.bcx = xsum/esum/cm; 
+	  trdata.bcy = ysum/esum/cm;
       }
   }
-
+  
+ 
   // If we don't have something in both arms end
   // and don't fill
   /*
@@ -264,13 +265,13 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	  if( gid == 0 ) continue;
 
 
-	  if( gid == 1 ){
+	  //	  if( gid == 1 ){
 	      //  Project back to z = 0 plane
 	      tx  =  (*gemHC)[idx]->GetPos().getX() - (*gemHC)[idx]->GetXp()*(*gemHC)[idx]->GetPos().getZ();
 	      ty  =  (*gemHC)[idx]->GetPos().getY() - (*gemHC)[idx]->GetYp()*(*gemHC)[idx]->GetPos().getZ();
 	      txp =  (*gemHC)[idx]->GetXp();
 	      typ =  (*gemHC)[idx]->GetYp();
-	  };
+	      //  };
 
 	  map |= (1 << (*gemHC)[idx]->GetGEMID());
 
@@ -362,11 +363,12 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	  }
       }
   }
-
   fIO->SetTrackData(trdata);
   fIO->SetCalData(caldata);
   fIO->SetHitData(hitdata);
   fIO->FillTree();
+   }
+  }
 
   return;
 }

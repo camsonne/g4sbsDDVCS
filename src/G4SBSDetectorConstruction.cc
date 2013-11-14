@@ -500,7 +500,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAll()
   const int nplane = 24;
 
   int i;
-  int ngem = 0;
+  int ngem = 20;
   double gemdsep;
   double *gemz;
   double *gemw;
@@ -821,12 +821,12 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAll()
   hcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
 
  // HCAL2 
-    hcalr = fHCALdist+hcaldepth/2.0+5*m;
- G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
-  G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
+ //    hcalr = fHCALdist+hcaldepth/2.0+5*m;
+ // G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
+ //  G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
      
-  new G4PVPlacement(hcalrm, G4ThreeVector(hcalr*sin(f48D48ang), 0.0, hcalr*cos(f48D48ang) ), hcallog2,
-	      "hcalphys2", WorldLog, false, 0, false); 
+ //  new G4PVPlacement(hcalrm, G4ThreeVector(hcalr*sin(f48D48ang), 0.0, hcalr*cos(f48D48ang) ), hcallog2,
+ // 	      "hcalphys2", WorldLog, false, 0, false); 
 
   // G4String HCALSDname = "G4SBS/HCAL";
   // G4String HCALcolname = "HCALcol";
@@ -1220,7 +1220,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   const int nplane = 24;
 
   int i;
-  int ngem = 0;
+  int ngem = 20;
   double gemdsep;
   double *gemz;
   double *gemw;
@@ -1378,26 +1378,26 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   //  hcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
 
 
- // HCAL2 
-   hcalheight = 630.0*cm;
-   hcalwidth  = 265.0*cm;
-   hcaldepth  = 301.0*cm;
+  //HCAL2 
+   hcalheight = 330.0*cm;
+   hcalwidth  = 165.0*cm;
+   hcaldepth  = 10.0*cm;
 
- G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
-  G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
-       new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, detoffset + 2.97*m + hcaldepth/2.0+1.5*m ), hcallog2,	      "hcalphys2", sbslog, false, 0, false); 
+//  G4Box *hcalbox2 = new G4Box("hcalbox2", hcalwidth/2.0, hcalheight/2.0, hcaldepth/2.0 );
+//   G4LogicalVolume* hcallog2 = new G4LogicalVolume(hcalbox2, Lead, "hcallog2");
+//        new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, detoffset + 2.97*m + hcaldepth + 3.5*m ), hcallog2,	      "hcalphys2", sbslog, false, 0, false); 
 
-G4String HCAL2SDname = "G4SBS/HCA2L";
-  G4String HCAL2colname = "HCAL2col";
-  G4SBSCalSD* HCal2SD;
+// G4String HCAL2SDname = "G4SBS/HCA2L";
+//   G4String HCAL2colname = "HCAL2col";
+//   G4SBSCalSD* HCal2SD;
 
-  if( !(HCal2SD = (G4SBSCalSD*) SDman->FindSensitiveDetector(HCAL2SDname)) ){
-      HCal2SD = new G4SBSCalSD( HCAL2SDname, HCAL2colname );
-      SDman->AddNewDetector(HCal2SD);
-  }
+//   if( !(HCal2SD = (G4SBSCalSD*) SDman->FindSensitiveDetector(HCAL2SDname)) ){
+//       HCal2SD = new G4SBSCalSD( HCAL2SDname, HCAL2colname );
+//       SDman->AddNewDetector(HCal2SD);
+//   }
 
-  SDman->AddNewDetector(HCal2SD);
-  hcallog->SetSensitiveDetector(HCal2SD);
+//   SDman->AddNewDetector(HCal2SD);
+//   hcallog->SetSensitiveDetector(HCal2SD);
 
   //--------- 48D48 -------------------------------
 

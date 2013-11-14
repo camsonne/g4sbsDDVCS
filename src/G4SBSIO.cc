@@ -31,6 +31,8 @@ void G4SBSIO::InitializeTree(){
     fTree->Branch("ev", &evdata, "count/D:rate/D:solang/D:sigma/D:W2/D:xbj/D:Q2/D:th/D:ph/D:Aperp/D:Apar/D:vx/D:vy/D:vz/D:ep/D:np/D:epx/D:epy/D:epz/D:npx/D:npy/D:npz/D:nth/D:nph/D:pmperp/D:pmpar/D:pmparsm/D:nucl/I:fnucl/I");
     fTree->Branch("tr", &trdata, "x/D:y/D:xp/D:yp/D:tx/D:ty/D:txp/D:typ/D:hcal/I:bb/I:gemtr/I:hcx/D:hcy/D:bcx/D:bcy/D:hct/D:hctex/D:hclx/D:hcly/D:hclz/D:hcdang/D");
     fTree->Branch("gen", &gendata, "thbb/D:thhcal/D:dbb/D:dhcal/D:Ebeam/D");
+    fTree->Branch("pairPgen",&pairPgen,10000,1);
+     fTree->Branch("pairMgen",&pairMgen,10000,1);
     // Tedious, but we want dynamically scaled
     fTree->Branch("ht.ndata", &hitdata.ndata, "ht.ndata/I");
     fTree->Branch("ht.gid", &hitdata.gid, "ht.gid[ht.ndata]/I");
