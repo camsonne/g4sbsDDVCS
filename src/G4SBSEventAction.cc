@@ -83,6 +83,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
   gemCollID   = SDman->GetCollectionID(colNam="GEMcol");
   hcalCollID  = SDman->GetCollectionID(colNam="HCALcol");
   bbcalCollID = SDman->GetCollectionID(colNam="BBCalcol");
+  hcal2CollID = SDman->GetCollectionID(colNam="HCAL2col");
   // TCollID = SDman->GetCollectionID(colNam="Tcol");
   
    //G4cout << ">>> Event " << evt->GetEventID() << G4endl;
@@ -90,7 +91,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
   G4HCofThisEvent * HCE = evt->GetHCofThisEvent();
   G4SBSCalHitsCollection* bbcalHC    = 0;
   G4SBSCalHitsCollection* hcalHC = 0;
-  //  G4SBSCalHitsCollection* THC = 0;
+  G4SBSCalHitsCollection* hcal2HC = 0;
   G4SBSGEMHitsCollection* gemHC = 0;
   if(HCE)
     {
@@ -102,11 +103,12 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 
   bool hasbb   = false;
   bool hashcal = false;
+  bool hashcal2 = false;
 
   int i;
 
   tr_t trdata;
-  cal_t caldata;
+  cal_t caldata,cal2data;
 
   caldata.bcndata = 0;
   caldata.hcndata = 0;
@@ -147,7 +149,44 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	      caldata.hctrid[i] = (*hcalHC)[i]->GetTrID();
 	  }
 
+	  if(hcal2HC) {
+	    //  printf(" HCAL2 hits  %d \n",hcal2HC->entries());
+	    if( hcal2HC->entries() > 0 ){
+	      hashcal2 = true;
+	      
+	      double xsum = 0.0;
+	      double ysum = 0.0;
 
+	      double xlsum = 0.0;
+	      double ylsum = 0.0;
+	      double zlsum = 0.0;
+	      
+	      double esum = 0.0;
+
+	      cal2data.hcndata = hcal2HC->entries();
+	      for( i = 0; i < hcal2HC->entries(); i++ ){
+		xsum += (*hcal2HC)[i]->GetPos().x()*(*hcal2HC)[i]->GetEdep();
+		ysum += (*hcal2HC)[i]->GetPos().y()*(*hcal2HC)[i]->GetEdep();
+		xlsum += (*hcal2HC)[i]->GetLabPos().x()*(*hcal2HC)[i]->GetEdep();
+		ylsum += (*hcal2HC)[i]->GetLabPos().y()*(*hcal2HC)[i]->GetEdep();
+		zlsum += (*hcal2HC)[i]->GetLabPos().y()*(*hcal2HC)[i]->GetEdep();
+		esum += (*hcal2HC)[i]->GetEdep();
+
+		if( (*hcal2HC)[i]->GetMID() == 0 ){
+		  trdata.hct = (*hcal2HC)[i]->GetTime()/ns + CLHEP::RandGauss::shoot(0.0, fevgen->GetToFres());
+		}
+
+		cal2data.hcx[i] = (*hcal2HC)[i]->GetPos().x()/cm;
+		cal2data.hcy[i] = (*hcal2HC)[i]->GetPos().y()/cm;
+		cal2data.hce[i] = (*hcal2HC)[i]->GetEdep()/GeV;
+		
+		cal2data.hcpid[i] = (*hcal2HC)[i]->GetPID();
+		cal2data.hcmid[i] = (*hcal2HC)[i]->GetMID();
+		cal2data.hctrid[i] = (*hcal2HC)[i]->GetTrID();
+	      }
+
+	    }
+	  }
       	  trdata.hcx = xsum/esum/cm;
 	  trdata.hcy = ysum/esum/cm;
 	  trdata.hclx = xlsum/esum/cm;
@@ -365,6 +404,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
   }
   fIO->SetTrackData(trdata);
   fIO->SetCalData(caldata);
+  fIO->SetCal2Data(cal2data);
   fIO->SetHitData(hitdata);
   fIO->FillTree();
    }

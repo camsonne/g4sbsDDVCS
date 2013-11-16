@@ -837,9 +837,9 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAll()
       SDman->AddNewDetector(HCal2SD);
   }
 
-  SDman->AddNewDetector(HCalSD);
-  hcallog->SetSensitiveDetector(HCalSD);
-  hcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
+  SDman->AddNewDetector(HCal2SD);
+  hcallog2->SetSensitiveDetector(HCal2SD);
+  hcallog2->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
 
 
 
@@ -1405,7 +1405,7 @@ G4RotationMatrix *hcalrm2 = new G4RotationMatrix;
    }
 
    SDman->AddNewDetector(HCal2SD);
-   hcallog->SetSensitiveDetector(HCal2SD);
+   hcallog2->SetSensitiveDetector(HCal2SD);
 
   //--------- 48D48 -------------------------------
 

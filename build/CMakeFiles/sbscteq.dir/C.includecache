@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteq-database.c
+/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteq-database.c
 string.h
 -
 cteqpdf.h
-/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
 
-/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf-f77.c
+/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c
 stdio.h
 -
 stdlib.h
@@ -20,9 +20,9 @@ stdlib.h
 string.h
 -
 cteqpdf.h
-/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
 
-/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.c
+/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.c
 math.h
 -
 stdio.h
@@ -32,7 +32,7 @@ stdlib.h
 string.h
 -
 cteqpdf.h
-/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
 
-/home/camsonne/Simulation/DDVCS/g4sbsddvs/src/cteq/cteqpdf.h
+/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
 

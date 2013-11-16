@@ -29,7 +29,7 @@ class G4SBSEventAction : public G4UserEventAction
 
 
   private:
-  G4int gemCollID, hcalCollID, bbcalCollID,TCollID;
+  G4int gemCollID, hcalCollID,hcal2CollID, bbcalCollID,TCollID;
 
     double fGEMres;
 
