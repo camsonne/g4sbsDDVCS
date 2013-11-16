@@ -97,6 +97,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
     {
       gemHC   = (G4SBSGEMHitsCollection*)(HCE->GetHC(gemCollID));
       hcalHC  = (G4SBSCalHitsCollection*)(HCE->GetHC(hcalCollID));
+      hcal2HC  = (G4SBSCalHitsCollection*)(HCE->GetHC(hcal2CollID));
       //  THC = (G4SBSCalHitsCollection*)(HCE->GetHC(TCollID));
       bbcalHC = (G4SBSCalHitsCollection*)(HCE->GetHC(bbcalCollID));
     }
@@ -150,7 +151,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	  }
 
 	  if(hcal2HC) {
-	    //  printf(" HCAL2 hits  %d \n",hcal2HC->entries());
+	    //     printf(" HCAL2 hits  %d \n",hcal2HC->entries());
 	    if( hcal2HC->entries() > 0 ){
 	      hashcal2 = true;
 	      

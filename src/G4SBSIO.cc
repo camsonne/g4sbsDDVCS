@@ -55,6 +55,14 @@ void G4SBSIO::InitializeTree(){
     fTree->Branch("hc.mid", &caldata.hcmid, "hc.mid[hc.ndata]/I");
     fTree->Branch("hc.pid", &caldata.hcpid, "hc.pid[hc.ndata]/I");
 
+     fTree->Branch("hc2.ndata", &cal2data.hcndata, "hc2.ndata/I");
+    fTree->Branch("hc2.x", &cal2data.hcx, "hc2.x[hc2.ndata]/D");
+    fTree->Branch("hc2.y", &cal2data.hcy, "hc2.y[hc2.ndata]/D");
+    fTree->Branch("hc2.e", &cal2data.hce, "hc2.e[hc2.ndata]/D");
+    fTree->Branch("hc2.trid", &cal2data.hctrid, "hc2.trid[hc2.ndata]/I");
+    fTree->Branch("hc2.mid", &cal2data.hcmid, "hc2.mid[hc2.ndata]/I");
+    fTree->Branch("hc2.pid", &cal2data.hcpid, "hc2.pid[hc2.ndata]/I");
+
     fTree->Branch("bc.ndata", &caldata.bcndata, "bc.ndata/I");
     fTree->Branch("bc.x", &caldata.bcx, "bc.x[bc.ndata]/D");
     fTree->Branch("bc.y", &caldata.bcy, "bc.y[bc.ndata]/D");
