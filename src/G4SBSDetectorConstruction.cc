@@ -1193,7 +1193,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
 
   SDman->AddNewDetector(BBCalSD);
   bigcallog->SetSensitiveDetector(BBCalSD);
-  bigcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
+  // bigcallog->SetUserLimits(  new G4UserLimits(0.0, 0.0, 0.0, DBL_MAX, DBL_MAX) );
 
   /////////////////////////////////////////////////////////
   G4RotationMatrix *hcalrm = new G4RotationMatrix;
@@ -1205,24 +1205,24 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   double sbsdepthlog  = 6.0*m;
   double sbswidth  = 4.0*m;
   double sbsheight = 6.5*m;
-  double  hcaldepth2  = 200.0*cm;
+  double  hcaldepth2  = 10.0*cm;
     double hcaldepth  = 101.0*cm;
   double sbsr = fHCALdist+sbsdepth/2;
   G4Box *sbsbox = new G4Box("sbsbox", sbswidth/2.0, sbsheight/2.0, hcaldepth/2+0.5*m );
  G4Box *sbscalbox = new G4Box("sbscalbox", sbswidth/2.0, sbsheight/2.0, hcaldepth2/2+0.05*m );
-  G4Box *sbsgembox = new G4Box("sbsgembox", sbswidth/2.0, sbsheight/2.0, 2.2*m );
+  G4Box *sbsgembox = new G4Box("sbsgembox", sbswidth/2.0, sbsheight/2.0, 1.0*m );
   G4LogicalVolume* sbslog = new G4LogicalVolume(sbsbox, Air, "sbslog");
    G4LogicalVolume* sbslog2 = new G4LogicalVolume(sbscalbox, Air, "sbslog2");
       G4LogicalVolume* sbslog3 = new G4LogicalVolume(sbsgembox, Air, "sbslog3");
-      new G4PVPlacement(hcalrm, G4ThreeVector((sbsr+0.5*m)*sin(f48D48ang), 0.0, (sbsr+0.5*m)*cos(f48D48ang) ), sbslog, "sbsphys", WorldLog, false, 0, false);
-  new G4PVPlacement(hcalrm, G4ThreeVector((sbsr+3*m)*sin(f48D48ang), 0.0, (sbsr+3*m)*cos(f48D48ang)), sbslog2, "sbsphys2", WorldLog, false, 0, false);
-  double gemrad = 5.5*m;
+      new G4PVPlacement(hcalrm, G4ThreeVector((sbsr-1.75*m)*sin(f48D48ang), 0.0, (sbsr-1.75*m)*cos(f48D48ang) ), sbslog, "sbsphys", WorldLog, false, 0, false);
+  new G4PVPlacement(hcalrm, G4ThreeVector((sbsr)*sin(f48D48ang), 0.0, (sbsr)*cos(f48D48ang)), sbslog2, "sbsphys2", WorldLog, false, 0, false);
+  double gemrad = 4.0*m;
   new G4PVPlacement(hcalrm, G4ThreeVector((gemrad)*sin(f48D48ang), 0.0, (gemrad)*cos(f48D48ang)), sbslog3, "sbsphys3", WorldLog, false, 0, false);
 
   //  6 GEMs in the front tracker
 
   double detoffset = 0*cm;//0.05*m -sbsdepth/2;
-   double gemoffset = -210*cm ;
+   double gemoffset = -100*cm ;
   const int nplane = 24;
 
   int i;
@@ -1235,7 +1235,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   ngem = 20;
   gemdsep = 0.05*m;
 
-  double pairspac  = 0.40*m;
+  double pairspac  = 0.20*m;
   //
   // GEM option 1
   
@@ -1249,11 +1249,11 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
 	  gemw[i] = 40.0*cm;
 	  gemh[i] = 150.0*cm;
       } else if( i < 10 ) {
-	  gemz[i] = pairspac*((i-6)/2) + (i%2)*gemdsep + 1.32*m + 7*cm ;
+	  gemz[i] = pairspac*((i-6)/2) + (i%2)*gemdsep + 50*cm + 7*cm ;
 	  gemw[i] = 200.0*cm;
 	  gemh[i] = 200.0*cm;
       } else {
-	  gemz[i] = pairspac*((i-10)/2) + (i%2)*gemdsep + 2.43*m + 7*cm ;
+	  gemz[i] = pairspac*((i-10)/2) + (i%2)*gemdsep + 1*m + 7*cm ;
 	  gemw[i] = 200.0*cm;
 	  gemh[i] = 200.0*cm;
       }
@@ -1353,10 +1353,10 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   G4Box *anabox = new G4Box("anabox", anawidth/2.0, anaheight/2.0, anadepth/2.0 );
   G4LogicalVolume* analog = new G4LogicalVolume(anabox, Lead, "analog");
 
-     new G4PVPlacement(0, G4ThreeVector(0.0, 0.0,  150 *cm + anadepth/2 ), analog,
+     new G4PVPlacement(0, G4ThreeVector(0.0, 0.0,  75 *cm + anadepth/2 ), analog,
   	      "anaphys1", sbslog3, false, 0, false);
-     new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, -100 *cm + anadepth/2.0 ), analog,
-  	      "anaphys2", sbslog, false, 0, false);
+     //   new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, -100 *cm + anadepth/2.0 ), analog,
+     //	      "anaphys2", sbslog, false, 0, false);
 
   //  HCAL
   
@@ -1388,7 +1388,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   //HCAL2 
    hcalheight = 400.0*cm;
    hcalwidth  = 217.0*cm;
-  hcaldepth2  = 100.0*cm;
+  hcaldepth2  = 10.0*cm;
 
 double hcalr = fHCALdist+hcaldepth2/2.0+ 4.1*m;
 

@@ -9,9 +9,9 @@
 /g4sbs/rastery  0.0 mm
 
 /g4sbs/runtime    30.0 day
-/g4sbs/beamE       2.2 GeV
-/g4sbs/bbang      40.0 deg
-/g4sbs/bbdist      1.7 m
+/g4sbs/beamE       11 GeV
+/g4sbs/bbang      -16.5 deg
+/g4sbs/bbdist      8 m
 /g4sbs/hcalang    16.5 deg
 /g4sbs/hcaldist   6.0 m
 /g4sbs/48D48dist   1.6 m
@@ -20,10 +20,12 @@
 /g4sbs/thmax      42.0 deg
 /g4sbs/phmin     179.9 deg
 /g4sbs/phmax     180.1 deg
-/g4sbs/kine     flat
-/g4sbs/pairPart mu
+/g4sbs/kine     pair
+/g4sbs/pairPart pi
 /g4sbs/pairE 3 GeV
-
+/g4sbs/target   LH2
+/g4sbs/targlen  40.0 cm
+/g4sbs/beamcur 80 uA
 
 /g4sbs/exp     gep
 # Use this open statement to create an OpenGL view:

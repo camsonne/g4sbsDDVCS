@@ -48,19 +48,28 @@ void G4SBSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
   G4LorentzVector mu1,mu2;
   G4ThreeVector pos(0,0,0);
-  
-
+  G4ThreeVector beam(0,0,sbsgen->GetBeamE());
+  G4ThreeVector orig(0,0,-2*m);
   // Several different types of scattering
   // Let's start with e'N elastic
-
+   particle = particleTable->FindParticle("e-");
+   particleGun->SetParticleDefinition(particle);
+   particleGun->SetParticleMomentumDirection(beam.unit());
+   particleGun->SetParticleEnergy(sbsgen->GetBeamE());
+   particleGun->SetParticlePosition(orig);
+   //particleGun->GeneratePrimaryVertex(anEvent);
   //  Roll up random values
   sbsgen->GenerateEvent();
 
   evdata = sbsgen->GetEventData();
   fIO->SetEventData(evdata);
 
+ if( sbsgen->GetKine() == kBeam ){
+      particleGun->GeneratePrimaryVertex(anEvent);
+      return;
+  }
 
-
+ if( sbsgen->GetKine() == kPair ){
    Double_t rT =  CLHEP::RandFlat::shoot(0.,0.);
    Double_t rP =  CLHEP::RandFlat::shoot(0.,0.);
    //  mu1.setRThetaPhi(1*m,(fPairCAngle+fPairDAngle)*deg,fPairDPhi*deg);
@@ -92,7 +101,7 @@ void G4SBSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
    particleGun->SetParticleEnergy(mu2.e());
    particleGun->SetParticlePosition(pos);
    particleGun->GeneratePrimaryVertex(anEvent);
-
+ }
 
   if( !fUseGeantino ){
       particle = particleTable->FindParticle(particleName="e-");
@@ -158,9 +167,7 @@ void G4SBSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
   // Only do final nucleon for generators other than
   // the generic beam generator
-  if( sbsgen->GetKine() != kBeam ){
-      particleGun->GeneratePrimaryVertex(anEvent);
-  }
+ 
 
 }
 

@@ -9,24 +9,27 @@
 /g4sbs/rastery  0.0 mm
 
 /g4sbs/runtime    30.0 day
-/g4sbs/beamE       2.2 GeV
-/g4sbs/bbang      40.0 deg
-/g4sbs/bbdist      1.7 m
-/g4sbs/hcalang    17.5 deg
+/g4sbs/beamE       11 GeV
+/g4sbs/bbang      -16.5 deg
+/g4sbs/bbdist      8 m
+/g4sbs/hcalang    16.5 deg
 /g4sbs/hcaldist   6.0 m
 /g4sbs/48D48dist   1.6 m
-/g4sbs/48D48ang   17.5 deg
+/g4sbs/48D48ang   16.5 deg
 /g4sbs/thmin      38.0 deg
 /g4sbs/thmax      42.0 deg
 /g4sbs/phmin     179.9 deg
 /g4sbs/phmax     180.1 deg
-/g4sbs/kine     flat
+/g4sbs/kine     beam
 /g4sbs/pairPart mu
 /g4sbs/pairE 3 GeV
+/g4sbs/target   LH2
+/g4sbs/targlen  40.0 cm
+/g4sbs/beamcur 80 uA
 
-/g4sbs/filename muonsfile.root
 /g4sbs/exp     gep
-/g4sbs/run 100000
+/g4sbs/filename bck-11GeV.root
+
 # Use this open statement to create an OpenGL view:
 #/vis/open OGLSQt
 #
@@ -59,8 +62,8 @@
 /vis/viewer/zoom 1.0
 #
 # Specify style (surface or wireframe):
-#/vis/viewer/set/style wireframe
-/vis/viewer/set/style surface
+/vis/viewer/set/style wireframe
+#/vis/viewer/set/style surface
 #
 # Draw coordinate axes:
 #/vis/scene/add/axes 0 0 0 1 m
@@ -101,8 +104,5 @@
 #
 # For file-based drivers, use this to create an empty detector view:
 #/vis/viewer/flush
-#/g4sbs/run  100000
+/g4sbs/run  10000000
 #/vis/viewer/flush
-/g4sbs/filename pionsfile.root
-/g4sbs/pairPart pi
-/g4sbs/run 100000

@@ -48,11 +48,12 @@ typedef struct {
 } hit_t;
 
 typedef struct {
-    Int_t hcndata, bcndata;
-	Double_t bcx[MAXHITDATA], bcy[MAXHITDATA], bce[MAXHITDATA];
-	Double_t hcx[MAXHITDATA], hcy[MAXHITDATA], hce[MAXHITDATA];
-	Int_t hctrid[MAXHITDATA], hcmid[MAXHITDATA], hcpid[MAXHITDATA];
-	Int_t bctrid[MAXHITDATA], bcmid[MAXHITDATA], bcpid[MAXHITDATA];
+  Int_t hcndata, bcndata;
+  Double_t bcx[MAXHITDATA], bcy[MAXHITDATA], bce[MAXHITDATA];
+  Double_t hcx[MAXHITDATA], hcy[MAXHITDATA], hce[MAXHITDATA];
+  Int_t hctrid[MAXHITDATA], hcmid[MAXHITDATA], hcpid[MAXHITDATA];
+  Int_t bctrid[MAXHITDATA], bcmid[MAXHITDATA], bcpid[MAXHITDATA];
+  Double_t etot;
 } cal_t;
 
 class G4SBSIO {

@@ -149,7 +149,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	      caldata.hcmid[i] = (*hcalHC)[i]->GetMID();
 	      caldata.hctrid[i] = (*hcalHC)[i]->GetTrID();
 	  }
-
+	  caldata.etot = esum;
 	  if(hcal2HC) {
 	    //     printf(" HCAL2 hits  %d \n",hcal2HC->entries());
 	    if( hcal2HC->entries() > 0 ){
@@ -162,7 +162,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	      double ylsum = 0.0;
 	      double zlsum = 0.0;
 	      
-	      double esum = 0.0;
+	      esum = 0.0;
 
 	      cal2data.hcndata = hcal2HC->entries();
 	      for( i = 0; i < hcal2HC->entries(); i++ ){
@@ -185,7 +185,7 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 		cal2data.hcmid[i] = (*hcal2HC)[i]->GetMID();
 		cal2data.hctrid[i] = (*hcal2HC)[i]->GetTrID();
 	      }
-
+	      cal2data.etot = esum;
 	    }
 	  }
       	  trdata.hcx = xsum/esum/cm;
