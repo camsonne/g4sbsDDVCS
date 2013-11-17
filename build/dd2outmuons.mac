@@ -26,7 +26,7 @@
 
 /g4sbs/filename muonsfile.root
 /g4sbs/exp     gep
-/g4sbs/run 10
+/g4sbs/run 1000
 # Use this open statement to create an OpenGL view:
 #/vis/open OGLSQt
 #
