@@ -37,7 +37,7 @@ G4bool G4SBSGEMSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 
   // Only return primary electron hits
   int trid = aStep->GetTrack()->GetParentID();
-  if( trid != 0 ) return false;
+  // if( trid != 0 ) return false;
 
 //  G4ThreeVector mom = aStep->GetTrack()->GetMomentum();
 

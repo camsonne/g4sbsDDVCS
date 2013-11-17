@@ -299,10 +299,11 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
       // Need at least three hits to draw a line
 
       nhit = 0;
+      // printf ( " Gem hits : %d \n",gemHC->entries());
       for( idx = 0; idx < gemHC->entries() && idx < MAXHIT; idx++ ){
 	  gid = (*gemHC)[idx]->GetGEMID();
 
-	  if( gid == 0 ) continue;
+	  // if( gid == 0 ) continue;
 
 
 	  //	  if( gid == 1 ){
@@ -330,10 +331,10 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	  hitdata.txp[nhit] =  (*gemHC)[idx]->GetYp();
 	  hitdata.typ[nhit] = -(*gemHC)[idx]->GetXp();
 
-//	  printf("GEM HIT %d (%f) %f %f\n", (*gemHC)[idx]->GetGEMID(), lz[nhit]/cm, lx[nhit]/cm, ly[nhit]/cm );
+	  //	  printf("GEM HIT %d (%f) %f %f\n", (*gemHC)[idx]->GetGEMID(), lz[nhit]/cm, lx[nhit]/cm, ly[nhit]/cm );
 	  nhit++;
       }
-
+      //   printf ("Number of hits : %d\n ",nhit);
       if( nhit >= 3 ){
 
 	  // Perform fitting
@@ -399,9 +400,10 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 		  hitdata.dx[i] =  dy/m;
 		  hitdata.dy[i] = -dx/m;
 	      }
-	      hitdata.ndata = nhit;
+	     
 	  }
       }
+       hitdata.ndata = nhit;
   }
   fIO->SetTrackData(trdata);
   fIO->SetCalData(caldata);

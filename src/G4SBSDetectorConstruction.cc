@@ -1205,24 +1205,26 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
   double sbsdepthlog  = 6.0*m;
   double sbswidth  = 4.0*m;
   double sbsheight = 6.5*m;
-  double  hcaldepth2  = 10.0*cm;
+  double  hcaldepth2  = 40.0*cm;
     double hcaldepth  = 101.0*cm;
   double sbsr = fHCALdist+sbsdepth/2;
-  G4Box *sbsbox = new G4Box("sbsbox", sbswidth/2.0, sbsheight/2.0, hcaldepth/2+0.5*m );
+  G4Box *sbsbox = new G4Box("sbsbox", sbswidth/2.0, sbsheight/2.0, hcaldepth/2+0.35*m );
  G4Box *sbscalbox = new G4Box("sbscalbox", sbswidth/2.0, sbsheight/2.0, hcaldepth2/2+0.05*m );
-  G4Box *sbsgembox = new G4Box("sbsgembox", sbswidth/2.0, sbsheight/2.0, 1.0*m );
+  G4Box *sbsgembox = new G4Box("sbsgembox", 4*m/2.0+10*cm, 2*m/2.0+10*cm, 0.9*m );
   G4LogicalVolume* sbslog = new G4LogicalVolume(sbsbox, Air, "sbslog");
    G4LogicalVolume* sbslog2 = new G4LogicalVolume(sbscalbox, Air, "sbslog2");
       G4LogicalVolume* sbslog3 = new G4LogicalVolume(sbsgembox, Air, "sbslog3");
-      new G4PVPlacement(hcalrm, G4ThreeVector((sbsr-1.75*m)*sin(f48D48ang), 0.0, (sbsr-1.75*m)*cos(f48D48ang) ), sbslog, "sbsphys", WorldLog, false, 0, false);
-  new G4PVPlacement(hcalrm, G4ThreeVector((sbsr)*sin(f48D48ang), 0.0, (sbsr)*cos(f48D48ang)), sbslog2, "sbsphys2", WorldLog, false, 0, false);
+       double hcalrad = 5.90*m;
+      new G4PVPlacement(hcalrm, G4ThreeVector((hcalrad)*sin(f48D48ang), 0.0, (hcalrad)*cos(f48D48ang) ), sbslog, "sbsphys", WorldLog, false, 0, false);
+double lcalrad = 8.00*m;
+  new G4PVPlacement(hcalrm, G4ThreeVector((lcalrad)*sin(f48D48ang), 0.0, (lcalrad)*cos(f48D48ang)), sbslog2, "sbsphys2", WorldLog, false, 0, false);
   double gemrad = 4.0*m;
   new G4PVPlacement(hcalrm, G4ThreeVector((gemrad)*sin(f48D48ang), 0.0, (gemrad)*cos(f48D48ang)), sbslog3, "sbsphys3", WorldLog, false, 0, false);
 
   //  6 GEMs in the front tracker
 
   double detoffset = 0*cm;//0.05*m -sbsdepth/2;
-   double gemoffset = -100*cm ;
+   double gemoffset = -75*cm ;
   const int nplane = 24;
 
   int i;
@@ -1255,7 +1257,7 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
       } else {
 	  gemz[i] = pairspac*((i-10)/2) + (i%2)*gemdsep + 1*m + 7*cm ;
 	  gemw[i] = 200.0*cm;
-	  gemh[i] = 200.0*cm;
+	  gemh[i] = 400.0*cm;
       }
 
       //printf("i = %d  z = %f\n", i, gemz[i]/m);
@@ -1340,21 +1342,38 @@ G4VPhysicalVolume* G4SBSDetectorConstruction::ConstructAllGEp()
       }
 
       sprintf(gemname[gidx], "gemphys_%02d", gidx);
-      new G4PVPlacement( 0, G4ThreeVector(0.0, 0.0, gemz[gidx]+gemoffset), gemlog, 
-	      gemname[gidx], sbslog3, true, gidx+1, false );
+      if ( gidx < 16 )
+	{
+	  new G4PVPlacement( 0, G4ThreeVector(0.0, 0.0, gemz[gidx]+gemoffset), gemlog, 
+			     gemname[gidx], sbslog3, true, gidx+1, false );
+	}
+      else
+	{
+	  // new G4PVPlacement( 0, G4ThreeVector(0.0, 0.0, gemz[gidx] - 1*m), gemlog, 
+	  if (gidx<18)
+	    {
+	      new G4PVPlacement( 0, G4ThreeVector(0.0, 0.0, (gidx-16)*120*cm-55*cm), gemlog, 
+				 gemname[gidx], sbslog, true, gidx+1, false );
+	    }
+	  else
+	     {
+	      new G4PVPlacement( 0, G4ThreeVector(0.0, 0.0, (gidx-18)*30*cm-15*cm), gemlog, 
+				 gemname[gidx], sbslog2, true, gidx+1, false );}
+	}
   }
  
   ////   CH2 blocks
 
-  double anaheight = 300.0*cm;
+  double anaheight = 400.0*cm;
   double anawidth  = 200*cm;
   double anadepth  = 10*cm;
   
   G4Box *anabox = new G4Box("anabox", anawidth/2.0, anaheight/2.0, anadepth/2.0 );
   G4LogicalVolume* analog = new G4LogicalVolume(anabox, Lead, "analog");
 
-     new G4PVPlacement(0, G4ThreeVector(0.0, 0.0,  75 *cm + anadepth/2 ), analog,
-  	      "anaphys1", sbslog3, false, 0, false);
+  // new G4PVPlacement(0, G4ThreeVector(0.0, 0.0,  75 *cm + anadepth/2 ), analog,
+  new G4PVPlacement(0, G4ThreeVector(0.0, 0.0,  -75 * cm ), analog,
+  	      "anaphys1", sbslog, false, 0, false);
      //   new G4PVPlacement(0, G4ThreeVector(0.0, 0.0, -100 *cm + anadepth/2.0 ), analog,
      //	      "anaphys2", sbslog, false, 0, false);
 
