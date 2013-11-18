@@ -43,7 +43,7 @@ int main(int argc, char** argv)
   //-------------------------------
 
     CLHEP::HepRandom::createInstance();
-    CLHEP::HepRandom::setTheSeed(time(0));
+    CLHEP::HepRandom::setTheSeed(time(0)+getpid());
 
     G4SBSIO *io = new G4SBSIO();
 
