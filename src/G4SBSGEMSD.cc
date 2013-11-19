@@ -31,7 +31,6 @@ G4bool G4SBSGEMSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 {
   double edep = aStep->GetTotalEnergyDeposit();
   const G4ParticleDefinition *particle = aStep->GetTrack()->GetParticleDefinition();
-
   // Charged geantinos always get tracked
   if( edep <= 0.0 && !(particle->GetParticleName()=="chargedgeantino") ) return false;
 
@@ -98,7 +97,8 @@ G4bool G4SBSGEMSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 //  hit->SetDir(mom.getX()/mom.getZ(), mom.getY()/mom.getZ());
   hit->SetDir(thisdelta.getX()/thisdelta.getZ(), thisdelta.getY()/thisdelta.getZ());
   hit->SetGEMID(copyID);
-
+  hit->SetE(edep);
+  hit->SetID(particle->GetPDGEncoding());
   hitCollection->insert( hit );
 
   return true;

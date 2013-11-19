@@ -103,6 +103,40 @@ void G4SBSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
    particleGun->GeneratePrimaryVertex(anEvent);
  }
 
+if( sbsgen->GetKine() == kAcc ){
+   Double_t rT =  CLHEP::RandFlat::shoot(0.,0.);
+   Double_t rP =  CLHEP::RandFlat::shoot(0.,0.);
+   //  mu1.setRThetaPhi(1*m,(fPairCAngle+fPairDAngle)*deg,fPairDPhi*deg);
+   // mu2.setRThetaPhi(1*m,(fPairCAngle-fPairDAngle)*deg,(-fPairDPhi)*deg);
+   // mu1.setE(sbsgen->GetBeamE());
+   // mu2.setE(sbsgen->GetBeamE())
+   sbsgen->GeneratePairAcc();
+   mu1=sbsgen->GetQM();
+   mu2=sbsgen->GetQP();
+   fIO->SetPairM(mu1);
+   fIO->SetPairP(mu2);
+   //  printf("Pair angles theta : %f phi : %f \n",sbsgen->GetPairCAngle(),sbsgen->GetPairPhiAngle());
+   // mu1.setRThetaPhi(1*m,sbsgen->GetPairCAngle(),sbsgen->GetPairPhiAngle());
+   //mu2.setRThetaPhi(1*m,sbsgen->GetPairCAngle(),-sbsgen->GetPairPhiAngle());
+   // Double_t rE =  CLHEP::RandFlat::shoot(1.,5.);
+   // mu1.setE(sbsgen->GetPairE());
+   //mu2.setE(sbsgen->GetPairE());
+   //printf ("part %s\n",(fPairPart+"-").data());
+   particle = particleTable->FindParticle(particleName=(fPairPart+"-").data());
+   particleGun->SetParticleDefinition(particle);
+   particleGun->SetParticleMomentumDirection(mu1.vect().unit());
+   particleGun->SetParticleEnergy(mu1.e());
+   particleGun->SetParticlePosition(pos);
+   particleGun->GeneratePrimaryVertex(anEvent);
+  
+   particle = particleTable->FindParticle(particleName=(fPairPart+"+").data());
+   particleGun->SetParticleDefinition(particle);
+   particleGun->SetParticleMomentumDirection(mu2.vect().unit());
+   particleGun->SetParticleEnergy(mu2.e());
+   particleGun->SetParticlePosition(pos);
+   particleGun->GeneratePrimaryVertex(anEvent);
+ }
+
   if( !fUseGeantino ){
       particle = particleTable->FindParticle(particleName="e-");
   } else {

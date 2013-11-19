@@ -437,9 +437,11 @@ void G4SBSEventGen::GenerateInelastic( Nucl_t nucl, G4LorentzVector ei, G4Lorent
 
 void G4SBSEventGen::GeneratePair(double dtheta,double dphi,double dE  ){
 
-
-   fQP.setRThetaPhi(1*m,(fPairCAngle+dtheta)*deg,dphi*deg);
-   fQM.setRThetaPhi(1*m,(fPairCAngle-dtheta)*deg,(-dphi)*deg);
+    double DeltaTheta =  CLHEP::RandFlat::shoot(-dtheta,dtheta);
+    double DeltaPhi =  CLHEP::RandFlat::shoot(-dphi, dphi);
+    double DeltaE =  CLHEP::RandFlat::shoot(-dE, dE);
+   fQP.setRThetaPhi(1*m,(fPairCAngle+DeltaTheta),DeltaPhi*deg);
+   fQM.setRThetaPhi(1*m,(fPairCAngle-DeltaTheta),-DeltaPhi*deg);
    // mu1.setE(sbsgen->GetBeamE());
    // mu2.setE(sbsgen->GetBeamE());
    Double_t rE =  CLHEP::RandFlat::shoot(1.,5.);
@@ -555,7 +557,7 @@ void G4SBSEventGen::GeneratePairAcc(){
    double phi=CLHEP::RandFlat::shoot(-10.,10.);
    double theta2=CLHEP::RandFlat::shoot(-10.,10.); 
    double phi2=CLHEP::RandFlat::shoot(-10,10.);
-
+   //double E=CLHEP::RandFlat::shoot(-10,10.);
    pairm.setRThetaPhi(fPairE,(fPairCAngle)+theta*deg,fPairPhiAngle+phi);
    pairp.setRThetaPhi(fPairE,(fPairCAngle)+theta2*deg,-fPairPhiAngle+phi2);
    //rotax.setRThetaPhi(fPairE,(fPairCAngle),phi*deg);
@@ -650,6 +652,155 @@ void G4SBSEventGen::GeneratePairSym(double theta,double phi, double Qprime2,  G4
 }
 
 
+void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, double_t Qprime2, G4LorentzVector ei, G4LorentzVector ni){
+    double minE = 0.*GeV;
+    double Mp = proton_mass_c2;
+
+    G4ThreeVector pboost = -1.0*(ni.boostVector());
+
+    G4LorentzVector eip = ei.boost(pboost);
+
+    // Boost back
+    ei.boost(-pboost);
+
+    // Rotation that puts z down eip
+    // Orthogonal vector with z
+    G4ThreeVector rotax = (eip.vect().cross(G4ThreeVector(0.0, 0.0, 1.0))).unit();
+    G4RotationMatrix prot;
+
+    prot.rotate(-eip.vect().theta(), rotax);
+
+    eip = G4LorentzVector(eip.e(), G4ThreeVector(0.0, 0.0, eip.e()));
+
+    G4LorentzVector nip = G4LorentzVector( Mp );
+    // Now we have our boost and way to get back, calculate elastic scattering
+
+    G4ThreeVector efp3, nfp3, qfp3;
+    G4LorentzVector efp, nfp, q, qf;
+
+    //  Now do real physics
+
+    double th = acos( CLHEP::RandFlat::shoot(cos(fThMax), cos(fThMin)) );
+    double ph = CLHEP::RandFlat::shoot(fPhMin, fPhMax );
+
+    double eprime = CLHEP::RandFlat::shoot(minE, eip.e());
+
+    /*
+    printf("nucleon p = %f, mass = %f\n", ni.vect().mag()/GeV, ni.m()/GeV);
+    printf("beam e= %f, eprime = %f\n", ei.e()/GeV, eprime/GeV);
+
+    printf("th = %f, phi = %f\n", th/deg, ph/deg);
+    */
+
+    efp3.setRThetaPhi(eprime, th, ph );
+    efp = G4LorentzVector( efp3, efp3.mag() );
+
+    q = eip-efp;
+
+    G4ThreeVector hrest3;
+    G4LorentzVector hrest;
+
+    // Invariant mass system
+    hrest = G4LorentzVector( q.vect(), Mp+q.e() );
+
+    // This is the invariant mass of the system
+    // Let's assume single pion decay from that
+
+    double W2 = hrest.mag2();
+    //GeneratePair();
+    if( W2 < pow(Mp,2.0) ){
+	// Kinematically not so good - abort
+	fSigma = 0.0;
+	fApar  = 0.0;
+	fAperp = 0.0;
+	fFinalNucl = fNuclType;
+
+	fPmisspar  = -1e9;
+	fPmissparSm  = -1e9;
+
+	fPmissperp = -1e9;
+
+	fW2 = W2;
+	fxbj = -1.0;
+
+	fElectronP = G4ThreeVector();
+	fElectronE = 0.0;
+
+	fNucleonP = G4ThreeVector();
+	fNucleonE = 0.0;
+
+	return;
+    }
+
+    //double W  = sqrt(W2);
+
+    //double thpi = acos( CLHEP::RandFlat::shoot(-1,1) );
+    //double phpi = CLHEP::RandFlat::shoot(0.0, 2.0*3.14159);
+    
+    // Start Double DVCS
+    //  q + p -> q' + p'
+    //   hrest
+    // 
+    //  Energy conservation
+    // 
+    //
+    
+    
+    fQ2 = -q.mag2();
+    
+    //  Do cross sections and asymmetries
+
+    fSigma = 0.0;
+    if( nucl == kProton ){
+//	printf("sigma p! %f %f %f\n", eip.e()/GeV, th/deg, eprime/GeV);
+	fSigma    = dissigma_p(eip.e()/GeV, th/rad, eprime/GeV)*((eip.e()-minE)/GeV)*nanobarn; // Dimensions of area
+    }
+    if( nucl == kNeutron ){
+	fSigma    = dissigma_n(eip.e()/GeV, th/rad, eprime/GeV)*((eip.e()-minE)/GeV)*nanobarn; // Dimensions of area
+    }
+//    printf("fSigma = %e\n", fSigma);
+
+    if( fSigma != fSigma ) fSigma = 0.0;
+
+    fApar  = 0.0;
+    fAperp = 0.0;
+
+    // Boost back
+    
+    efp3 = prot*efp3;
+    G4LorentzVector ef(efp3, efp3.mag());
+    ef = ef.boost(-pboost);
+
+    qf = ei - ef;
+    G4ThreeVector qf3 = qf.vect();
+
+    fPmisspar  = 1e-3;
+
+    fPmissparSm  = -1e9;
+
+    fPmissperp = 1e-3;
+
+    fW2 = (qf+nip).mag2();
+    fxbj = fQ2/(2.0*Mp*qf.e());
+
+    /*
+    printf("qf.e = %f (%f)\n", qf.e()/GeV, 6.6-ef.e()/GeV);
+    printf("ef = %f (%f)\n", ef.e()/GeV, ef.vect().mag()/GeV);
+    printf("nip.e = %f, nip.p.mag = %f\n", nip.e()/GeV, nip.vect().mag()/GeV);
+
+    printf("fQ2 = %f and should be %f and %f\n", fQ2/GeV/GeV, -qf.mag2()/GeV/GeV, 2.0*6.6*GeV*ef.e()*(1.0-cos(ef.vect().theta()))/GeV/GeV );
+    */
+
+    fElectronP = ef.vect();
+    fElectronE = ef.e();
+
+    fNucleonP = G4ThreeVector();
+    fNucleonE = -1e9;  // This ensures we won't generate a nucleon event
+
+    return;
+}
+
+
 void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, G4LorentzVector ei, G4LorentzVector ni){
     double minE = 0.*GeV;
     double Mp = proton_mass_c2;
@@ -734,11 +885,12 @@ void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, G4LorentzVector ei, G4LorentzVec
 
     //double thpi = acos( CLHEP::RandFlat::shoot(-1,1) );
     //double phpi = CLHEP::RandFlat::shoot(0.0, 2.0*3.14159);
-
-    if( CLHEP::RandFlat::shoot() < 2.0/3.0 ){
-	fFinalNucl = nucl;
-    }
-
+    
+    // Start Double DVCS
+    //  q + p -> q' + p'
+    //
+    // 
+    
 
     fQ2 = -q.mag2();
     

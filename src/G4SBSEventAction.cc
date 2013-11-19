@@ -330,6 +330,9 @@ void G4SBSEventAction::EndOfEventAction(const G4Event* evt )
 	  hitdata.ty[nhit] = -(*gemHC)[idx]->GetPos().getX()/m;
 	  hitdata.txp[nhit] =  (*gemHC)[idx]->GetYp();
 	  hitdata.typ[nhit] = -(*gemHC)[idx]->GetXp();
+	  hitdata.e[nhit] =  (*gemHC)[idx]->GetE();
+	  hitdata.pid[nhit] = -(*gemHC)[idx]->GetID();
+
 
 	  //	  printf("GEM HIT %d (%f) %f %f\n", (*gemHC)[idx]->GetGEMID(), lz[nhit]/cm, lx[nhit]/cm, ly[nhit]/cm );
 	  nhit++;

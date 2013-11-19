@@ -237,6 +237,11 @@ void G4SBSMessenger::SetNewValue(G4UIcommand* cmd, G4String newValue){
 	    validcmd = true;
 	}
 
+	if( newValue.compareTo("acc") == 0 ){
+	    fevgen->SetKine(kAcc);
+	    validcmd = true;
+	}
+
 	if( newValue.compareTo("beam") == 0 ){
 	    fevgen->SetKine(kBeam);
 	    validcmd = true;

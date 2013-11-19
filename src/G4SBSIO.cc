@@ -25,6 +25,8 @@ G4SBSIO::~G4SBSIO(){
 
 
 void G4SBSIO::InitializeTree(){
+ 
+  
     if( fTree ){ delete fTree; }
 
     fTree = new TTree("T", "Geant4 SBS Simulation");
@@ -38,6 +40,8 @@ void G4SBSIO::InitializeTree(){
     fTree->Branch("ht.gid", &hitdata.gid, "ht.gid[ht.ndata]/I");
     fTree->Branch("ht.x", &hitdata.x, "ht.x[ht.ndata]/D");
     fTree->Branch("ht.y", &hitdata.y, "ht.y[ht.ndata]/D");
+    fTree->Branch("ht.e", &hitdata.e, "ht.e[ht.ndata]/D");
+    fTree->Branch("ht.pid", &hitdata.pid, "ht.pid[ht.ndata]/I");
     fTree->Branch("ht.z", &hitdata.z, "ht.z[ht.ndata]/D");
     fTree->Branch("ht.dx", &hitdata.dx, "ht.dx[ht.ndata]/D");
     fTree->Branch("ht.dy", &hitdata.dy, "ht.dy[ht.ndata]/D");
@@ -86,8 +90,8 @@ void G4SBSIO::FillTree(){
 }
 
 void G4SBSIO::WriteTree(){
-    fFile = new TFile(fFilename, "RECREATE");
-    fFile->cd();
+  fFile = new TFile(fFilename, "RECREATE");
+  fFile->cd();   
     fTree->Write("T", TObject::kOverwrite);
     fFile->Close();
     delete fFile;

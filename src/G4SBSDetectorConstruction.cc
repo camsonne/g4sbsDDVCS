@@ -1522,8 +1522,8 @@ G4RotationMatrix *hcalrm2 = new G4RotationMatrix;
 
   //--------- Visualization attributes -------------------------------
   WorldLog->SetVisAttributes(G4VisAttributes::Invisible);
-  //sbslog->SetVisAttributes(G4VisAttributes::Invisible);
-  // sbslog2->SetVisAttributes(G4VisAttributes::Invisible);
+ sbslog->SetVisAttributes(G4VisAttributes::Invisible);
+   sbslog2->SetVisAttributes(G4VisAttributes::Invisible);
   bigfieldLog->SetVisAttributes(G4VisAttributes::Invisible);
 
 
