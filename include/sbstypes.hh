@@ -10,7 +10,7 @@
 enum Targ_t { kH2, kLH2, kLD2, k3He, kNeutTarg };
 enum Nucl_t { kProton, kNeutron };
 enum Pion_t { kpip, kpim, kpi0 };
-enum Kine_t { kElastic, kFlat, kInelastic, kDIS, kBeam ,kPair};
+enum Kine_t { kElastic, kFlat, kInelastic, kDIS, kBeam ,kPair, kAcc};
 enum Exp_t { kGEp, kNeutronExp };
 
 #endif//SBSTYPES_HH

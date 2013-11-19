@@ -36,6 +36,9 @@ class G4SBSGEMHit : public G4VHit
 
       G4double xp;
       G4double yp;
+      G4double e;
+      G4int pid;
+
 
   public:
       inline void SetPos(G4ThreeVector v)
@@ -44,6 +47,14 @@ class G4SBSGEMHit : public G4VHit
       { xp = x; yp =y;};
       inline void SetGEMID(G4int i)
       { GEMID = i;};
+  inline void SetID(G4int i)
+  { pid = i;};
+   inline void SetE(G4double i)
+  { e = i;};
+   inline G4int GetID()
+  { return pid ;};
+   inline G4double GetE()
+  { return e ;};
 
       inline G4ThreeVector GetPos()
       { return pos;};

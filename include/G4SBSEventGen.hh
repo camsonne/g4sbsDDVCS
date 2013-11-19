@@ -102,6 +102,7 @@ public:
 	void GenerateFlat( Nucl_t, G4LorentzVector, G4LorentzVector );
   void GeneratePairSym( double_t theta, double phi, double Qprime2, G4LorentzVector & Qm, G4LorentzVector &Qp);
   void GeneratePair( double_t theta, double phi, double E);
+  void GenerateDDVCS( Nucl_t,double QPrime2, G4LorentzVector, G4LorentzVector);
   void GenerateDDVCS( Nucl_t, G4LorentzVector, G4LorentzVector);
 	void GenerateBeam( Nucl_t, G4LorentzVector, G4LorentzVector );
 

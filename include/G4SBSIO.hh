@@ -41,6 +41,8 @@ typedef struct {
 typedef struct {
     Int_t ndata;
 	Int_t gid[MAXHITDATA];
+  	Int_t e[MAXHITDATA];
+  	Int_t pid[MAXHITDATA];
 	Double_t x[MAXHITDATA], y[MAXHITDATA], z[MAXHITDATA];
 	Double_t dx[MAXHITDATA], dy[MAXHITDATA];
 	Double_t tx[MAXHITDATA], ty[MAXHITDATA];
