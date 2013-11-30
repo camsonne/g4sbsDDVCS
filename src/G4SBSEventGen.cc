@@ -705,7 +705,22 @@ void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, double_t Qprime2, G4LorentzVecto
 
     // This is the invariant mass of the system
     // Let's assume single pion decay from that
-
+    //Generate proton momentum
+    double Pproton = CLHEP::RandFlat::shoot(0., q.e());
+    double ThProton = CLHEP::RandFlat::shoot(0., 180.);
+    double PhiProton = CLHEP::RandFlat::shoot(0.,360.);
+    double Ephoton = q.e() - Pproton;
+    double Pphoton = CLHEP::RandFlat::shoot(0., q.e());
+    G4LorentzVector L4P;
+    L4P.setRThetaPhi(Pproton,ThProton,PhiProton);
+    //Generate outgoing virtual photon
+    G4LorentzVector L4qp = q - L4P; 
+    double LE1 = CLHEP::RandFlat::shoot(0., L4qp.e());
+    double ThL1 = CLHEP::RandFlat::shoot(0., 180.);
+    double PhiL1 = CLHEP::RandFlat::shoot(0.,360.);
+    //Generate second outgoing  Lepton
+    // Momenum conservation
+    //Generate first lepton
     double W2 = hrest.mag2();
     //GeneratePair();
     if( W2 < pow(Mp,2.0) ){
