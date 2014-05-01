@@ -1,0 +1,12 @@
+#include <TLorentzVector.h>
+#include 
+
+class TDDVCSGen : public TObject
+{
+ protected:
+  TLorentzVector k,kp;
+ public:
+  TDDVCSGen();
+  ~TDDVCSGen();
+  ClassDef (TDDVCSGen,1);
+}

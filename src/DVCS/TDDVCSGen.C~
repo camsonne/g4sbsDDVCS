@@ -1,0 +1,13 @@
+#include "TDDVCSGen.h"
+
+TDDVCSGen::TDDVCSGen()
+{
+
+}
+
+TDDVCSGen::~TDDVCSGen()
+{
+
+}
+
+ClassImp(TDDVCSGen)
