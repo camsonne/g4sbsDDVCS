@@ -6,110 +6,48 @@
 
 using namespace std;
 
-class T3DArrow : public TPolyLine3D
+/* class T3DArrow : public TPolyLine3D */
+/* { */
+/*  public: */
+/*   T3DArrow(); */
+/*   ~T3DArrow(); */
+/*   void Draw(); */
+/*   void SetBegin(Double_t x,Double_t y,Double_t z); */
+/*   void SetEnd(Double_t x,Double_t y,Double_t z); */
+
+/* } */
+/* ; */
+class TGenPart:public TRandom3
 {
  public:
-
- protected:
-
-}
-
-class TGenPart:public TLorentzVector
-{
-  public:
-  TGenPart& operator= (const TGenPart &b)
+ TGenPart(TLorentzVector * lv):TRandom3()
     {
-      TLorentzVector * here = this;
-      const TLorentzVector * there = & b;
-      *here = * there;
-      fMass=b.fMass;
-      fThMin=b.fThMin;
-      fThMax=b.fThMax;
-      fPhMin=b.fPhMin;
-      fPhMax=b.fPhMax;
-      fEMin=b.fEMin;
-      fEMax=b.fEMax;
+      fLorVect=lv;
+      fThMin=-10;
+      fThMax=10;
+      fPhMin=-10;
+      fPhMax=10;
+      fEMin=0;
+      fEMax=11;
+      fMass=0;
     }
-  TGenPart operator+ (TGenPart b){ 
-    TLorentzVector * here = this;
-    TLorentzVector * there = & b;
-    *here += * there;
-    fMass+=b.fMass;
-    fThMin+=b.fThMin;
-    fThMax+=b.fThMax;
-    fPhMin+=b.fPhMin;
-    fPhMax+=b.fPhMax;
-    fEMin+=b.fEMin;
-    fEMax+=b.fEMax; 
-  }
-  
- TGenPart operator* (Double_t b)
-{ 
-  TLorentzVector * here = this;
-  (*here)*=b;
-  fMass*=b;
-  fThMin*=b;
-  fThMax*=b;
-  fPhMin*=b;
-  fPhMax*=b;
-  fEMin*=b;
-  fEMax*=b;
-}
-
-
-  TGenPart operator- ()
- {
-   *this = (*this)*-1.;
- }
-  TGenPart operator- (TGenPart b)
-  { 
-    *this = (*this)+ b*-1.;
-  }
-  TGenPart operator* (TGenPart b){ this->TLorentzVector::operator*(b);}
- 
-  TGenPart operator/ (Double_t b){ this->TLorentzVector::operator*(1/b);}
-  
-  // friend TGenPart Double_t operator* (Double_t v ,TGenPart b){ return TLorentzVector::operator*(b*v);}
-
- TGenPart():fRGen(0),TLorentzVector()
-  {
-   
-   fMass=0;
-   fThMin=0;
-   fThMax=10;
-   fPhMin=0;
-   fPhMax=10;
-   fEMin=1;
-   fEMax=2;
-  }
-
- TGenPart(const TGenPart & b): TLorentzVector ()
-  {
-    TLorentzVector * here = this;
-    const TLorentzVector * there = & b;
-    *here = * there;
-   fMass=b.fMass;
-   fThMin=b.fThMin;
-   fThMax=b.fThMax;
-   fPhMin=b.fPhMin;
-   fPhMax=b.fPhMax;
-   fEMin=b.fEMin;
-   fEMax=b.fEMax;
-  }
-
-  ~TGenPart()
+ TGenPart():TRandom3()
     {
+      fLorVect=0;
+      fThMin=25;
+      fThMax=35;
+      fPhMin=-10;
+      fPhMax=10;
+      fEMin=0;
+      fEMax=11;
+      fMass=0;
     }
-  void SetMass(Double_t v)
-  { 
+~TGenPart()
+  {
 
   }
-  void Print();
-    void Generate();
-  Double_t SetLimits(Double_t thetamin,Double_t thetamax,Double_t phimin,Double_t phimax,Double_t pmin,Double_t pmax)
-  {
-   
-  }
+ void Generate();
+ void Generate(Double_t Emin,Double_t Emax);
   Double_t SetThMin(Double_t v) 
   {
     fThMin=v;
@@ -129,13 +67,16 @@ class TGenPart:public TLorentzVector
   Double_t SetEMax(Double_t v) {
     fEMax=v;
   }
+
+   Double_t SetMass(Double_t v) {
+    fMass=v;
+  }
+   void Print();
   // protected:
-  TRandom3 fRGen; 
-  Double_t fMass;
-  Double_t fThMin,fThMax,fPhMin,fPhMax,fEMin,fEMax;
-   TVector3 fVect;
-   TLorentzVector & LVect() {return (TLorentzVector &) *this;};
-   ClassDef(TGenPart,1)
+   Double_t fThMin,fThMax,fPhMin,fPhMax,fEMin,fEMax;// Degrees
+   Double_t fMass;// GeV
+  TLorentzVector * fLorVect;
+  ClassDef(TGenPart,1)
 };
 
 class TDDVCSGen : public TObject
@@ -147,21 +88,27 @@ class TDDVCSGen : public TObject
   void  GenerateDDVCS();
   void GenerateDDVCSFlat();
   TLorentzVector SetFourVect ( Double_t E, Double_t kx, Double_t  ky, Double_t kz ){TLorentzVector v(kx,ky,kz,E);return v;};
-  TLorentzVector SetBeam();
-  TLorentzVector SetScattered();
+  TLorentzVector SetBeam(TLorentzVector & v );
+  TLorentzVector SetScattered(TLorentzVector & v);
+  TLorentzVector SetBeam(Double_t px,Double_t py,Double_t pz,Double_t E );
+  TLorentzVector SetBeam(Double_t E );
+  TLorentzVector SetScattered(Double_t px,Double_t py,Double_t pz,Double_t E );
   void GenerateEvent();
   void GenerateScattered();
   void GenerateQ2();
-  TLorentzVector Q(){fq = fk-fkp; return fq;};
+  TLorentzVector Q1(){fq1 = fk-fkp; return fq1;};
+  TLorentzVector Q(){fq = (fq1+fq2)*0.5; return fq;};
   TLorentzVector Delta(){fDelta =(fq2 + fq1)*0.5; return fDelta;}
-  TLorentzVector P(){fp = (fpi+fpf)*0.5; return fp;};
+  TLorentzVector P(){fp = (fpi+fpf); return fp;};
    Double_t Xi(){return fXi;};
    Double_t Eta(){return fEta;};
   Double_t Q2() {return fQ2;}
   Double_t xbj(){return fxbj; };
   void Compute();
+  void Print();
   //protected:
-  TGenPart fk,fkp,fpi,fpf,fp,fq1,fq2,fq,fL1,fL2,fDelta;
+  TLorentzVector fk,fkp,fpi,fpf,fp,fq1,fq2,fq,fL1,fL2,fDelta;
+  TGenPart  * fGkp, * fGq2, * fGL1;
   Double_t fDThetaE,fDPhiE,fDPE;
   Double_t fDThetaQ2,fDPhiQ2;
   Double_t fQ2,fxbj,fEta,fXi;
