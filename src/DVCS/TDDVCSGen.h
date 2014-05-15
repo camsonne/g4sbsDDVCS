@@ -81,7 +81,7 @@ class TGenPart:public TRandom3
     fMass=v;
   }
    void Print();
-  // protected:
+   protected:
    Double_t fThMin,fThMax,fPhMin,fPhMax,fEMin,fEMax;// Degrees
    Double_t fMass;// GeV
   TLorentzVector * fLorVect;
@@ -117,7 +117,7 @@ class TDDVCSGen : public TObject
   Double_t t(){return Delta().Mag2(); };
   void Compute();
   void Print();
-  //protected:
+  protected:
   TLorentzVector fk,fkp,fpi,fpf,fp,fq1,fq2,fq,fL1,fL2,fDelta;
   TGenPart  * fGkp, * fGq2, * fGL1;
   Double_t fDThetaE,fDPhiE,fDPE;
