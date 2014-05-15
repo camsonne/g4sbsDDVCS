@@ -4,6 +4,14 @@
 #ifndef _TDDVCSGEN_
 #define _TDDVCSGEN_
 
+/*
+Root Vector3 angle :
+phi angle betweeb x and y in XY plane
+theta angle between Z and Y ( equal to pi/2 to be in XY plane ) 
+beam along y axis usually
+z anti gravity
+ */
+
 using namespace std;
 
 /* class T3DArrow : public TPolyLine3D */
@@ -48,6 +56,7 @@ class TGenPart:public TRandom3
   }
  void Generate();
  void Generate(Double_t Emin,Double_t Emax);
+ void GenerateDir(TVector3 dir);
   Double_t SetThMin(Double_t v) 
   {
     fThMin=v;
@@ -98,12 +107,14 @@ class TDDVCSGen : public TObject
   void GenerateQ2();
   TLorentzVector Q1(){fq1 = fk-fkp; return fq1;};
   TLorentzVector Q(){fq = (fq1+fq2)*0.5; return fq;};
-  TLorentzVector Delta(){fDelta =(fq2 + fq1)*0.5; return fDelta;}
+  TLorentzVector Delta(){fDelta =(fq2 - fq1); return fDelta;}
+  TLorentzVector Deltap(){fDelta =fpi -fpf; return fDelta;}
   TLorentzVector P(){fp = (fpi+fpf); return fp;};
    Double_t Xi(){return fXi;};
    Double_t Eta(){return fEta;};
   Double_t Q2() {return fQ2;}
   Double_t xbj(){return fxbj; };
+  Double_t t(){return Delta().Mag2(); };
   void Compute();
   void Print();
   //protected:
