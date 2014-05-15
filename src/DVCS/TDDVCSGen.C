@@ -31,15 +31,17 @@ TDDVCSGen::~TDDVCSGen()
 
  void  TDDVCSGen::GenerateDDVCS()
 {
-  //fGkp->Generate(0,3);//scattered electron
+  fGkp->Generate(0,1.5);//scattered electron
   fq1 = fk - fkp;
   Double_t DTheta = 0.001;
   Double_t DPhi = 1;
+  Double_t Mq=fGq2->Uniform(1,fq1.M());
   fGq2->SetThMin(fq1.Theta()/TMath::Pi()*180+DTheta);
   fGq2->SetThMax(fq1.Theta()/TMath::Pi()*180-DTheta);
   fGq2->SetPhiMin(fq1.Phi()/TMath::Pi()*180-DPhi);
   fGq2->SetPhiMax(fq1.Phi()/TMath::Pi()*180+DPhi);
-  fGq2->Generate(8,fq1.E());//generate virtual photon
+  fGq2->Generate(5,sqrt(fq1.E()*fq1.E()-Mq*Mq));//generate virtual photon
+  fq2.SetE(sqrt(fq2.E()+Mq*Mq));
   fpf= (fpi+fq1-fq2); // proton takes rest of impulsion
   DTheta = 0.01;
   DPhi = 10;
@@ -47,8 +49,10 @@ TDDVCSGen::~TDDVCSGen()
   fGL1->SetThMax(fq2.Theta()/TMath::Pi()*180-DTheta);
   fGL1->SetPhiMin(fq2.Phi()/TMath::Pi()*180-DPhi);
   fGL1->SetPhiMax(fq2.Phi()/TMath::Pi()*180+DPhi);
-  fGL1->Generate(1,fq2.E());
+  fGL1->Generate(1,sqrt(fq2.E()*fq2.E()-(2*0.110*2*0.110)));
+  fL1.SetE(sqrt(fL1.E()*fL1.E()+0.110*0.110));
   fL2 = fq2 - fL1;
+  fL2.SetE(sqrt(fL2.E()*fL2.E()+0.110*0.110));
   Compute();
 }
   void TDDVCSGen:: GenerateDDVCSFlat(){}
@@ -141,8 +145,8 @@ void TGenPart::GenerateDir(TVector3 dir )
 {
    
    Double_t Th,Ph,En;
-   Th = Uniform(-fThMin/180*TMath::Pi()+dir.Theta(),fThMax/180*TMath::Pi()+dir.Theta());
-   Ph = Uniform(-fPhMin/180*TMath::Pi()+dir.Phi(),fPhMax/180*TMath::Pi()+dir.Phi());
+   Th = Uniform(fThMin/180*TMath::Pi()+dir.Theta(),fThMax/180*TMath::Pi()+dir.Theta());
+   Ph = Uniform(fPhMin/180*TMath::Pi()+dir.Phi(),fPhMax/180*TMath::Pi()+dir.Phi());
    En = Uniform(fEMin,fEMax);
    TVector3 Vect;
    Vect.SetMagThetaPhi(En,Th,Ph);
@@ -157,9 +161,9 @@ void TGenPart::Generate(Double_t Emin,Double_t Emax)
 {
    
    Double_t Th,Ph,En;
-   if (fThMin!=0 && fThMin!=0)      
+   //if (fThMin!=0 && fThMin!=0)      
        Th = Uniform(fThMin/180*TMath::Pi(),fThMax/180*TMath::Pi());
-   if (fPhMin!=0 && fPhMin!=0)      
+       //if (fPhMin!=0 && fPhMin!=0)      
      Ph = Uniform(fPhMin/180*TMath::Pi(),fPhMax/180*TMath::Pi());
    En = Uniform(Emin,Emax);
     TVector3 Vect;
