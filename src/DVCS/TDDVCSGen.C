@@ -42,18 +42,26 @@ TDDVCSGen::~TDDVCSGen()
   fGq2->SetThMax(fq1.Theta()/TMath::Pi()*180+DTheta);
   fGq2->SetPhiMin(fq1.Phi()/TMath::Pi()*180-DPhi);
   fGq2->SetPhiMax(fq1.Phi()/TMath::Pi()*180+DPhi);
-  fGq2->Generate(5,sqrt(fq1.E()*fq1.E()-Mq*Mq));//generate virtual photon
+  fGq2->Generate(1,sqrt(fq1.E()*fq1.E()-Mq*Mq));//generate virtual photon
   fq2.SetE(sqrt(fq2.E()+Mq*Mq));
+  TLorentzRotation l;
+  l.RotateZ(-fq2.Phi());
+  l.RotateY(-fq2.Theta());
+  l.Boost(0,0,-fq2.Beta());
   fpf= (fpi+fq1-fq2); // proton takes rest of impulsion
   DTheta = 0.01;
   DPhi = 10;
-  fGL1->SetThMin(fq2.Theta()/TMath::Pi()*180-DTheta);
-  fGL1->SetThMax(fq2.Theta()/TMath::Pi()*180+DTheta);
-  fGL1->SetPhiMin(fq2.Phi()/TMath::Pi()*180-DPhi);
-  fGL1->SetPhiMax(fq2.Phi()/TMath::Pi()*180+DPhi);
-  fGL1->Generate(1,sqrt(fq2.E()*fq2.E()-(2*0.110*2*0.110)));
-  fL1.SetE(sqrt(fL1.E()*fL1.E()+0.110*0.110));
-  fL2.SetVectMag(fq2.Vect()-fL1.Vect(),0.110);
+  //Virtual photon decay in dimuon
+  //in center of mass
+  fGL1->SetMass(0.110);
+  fGL1->SetThMin(0);
+  fGL1->SetThMax(360);
+  fGL1->SetPhiMin(0);
+  fGL1->SetPhiMax(360);
+  fGL1->Generate(0.110,Mq*Mq/2);
+  fL2=-fL1;
+  fL1.Transform(l.Inverse());
+  fL2.Transform(l.Inverse());
   Compute();
 }
   void TDDVCSGen:: GenerateDDVCSFlat(){}
