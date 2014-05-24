@@ -17,7 +17,7 @@ void TestKin()
   a->SetBeam(11);
   a->SetScattered(Fkp);
   a->Compute();
-  cout<<a.Q2()<<" "<<a.xbj()<<endl;
+  cout<<a->Q2()<<" "<<a->xbj()<<endl;
   cout<<4*1.32*11*sin(15/180.*TMath::Pi())*sin(15/180.*TMath::Pi())<<" "<<4*1.32*11*sin(15/180.*TMath::Pi())*sin(15/180.*TMath::Pi())/(2*0.938*(11-1.32))<<endl;
   a->GenerateDDVCS();
   a->Print();
@@ -26,7 +26,8 @@ void TestKin()
     {
        a->GenerateDDVCS();
        tree->Fill();
+       if (i%1000==0) cout<<i<<endl;
     }
   tree->Write("T");
-  out->Close();
+  // out->Close();
 }

@@ -33,17 +33,18 @@ TDDVCSGen::~TDDVCSGen()
  void  TDDVCSGen::GenerateDDVCS()
 {
   fGkp->Generate();//scattered electron
-  fGkp->Generate(4,4.2);//scattered electron
+  fGkp->Generate(2,3);//scattered electron
   fq1 = fk - fkp;
   Double_t DTheta = 12.2;
   Double_t DPhi = 5;
-  Double_t Mq=fGq2->Uniform(1,fq1.M()-1);
+  Double_t Mq=fGq2->Uniform(TMath::Min(1.,-fq1.M()),TMath::Max(1.,-fq1.M()));
+  fGq2->SetMass(Mq);
   fGq2->SetThMin(fq1.Theta()/TMath::Pi()*180-DTheta);
   fGq2->SetThMax(fq1.Theta()/TMath::Pi()*180+DTheta);
   fGq2->SetPhiMin(fq1.Phi()/TMath::Pi()*180-DPhi);
   fGq2->SetPhiMax(fq1.Phi()/TMath::Pi()*180+DPhi);
   fGq2->Generate(1,sqrt(fq1.E()*fq1.E()-Mq*Mq));//generate virtual photon
-  fq2.SetE(sqrt(fq2.E()+Mq*Mq));
+  //  fq2.SetE(sqrt(fq2.E()+Mq*Mq));
   TLorentzRotation l;
   l.RotateZ(-fq2.Phi());
   l.RotateY(-fq2.Theta());
@@ -59,9 +60,14 @@ TDDVCSGen::~TDDVCSGen()
   fGL1->SetPhiMin(0);
   fGL1->SetPhiMax(360);
   fGL1->Generate(0.110,Mq*Mq/2);
-  fL2=-fL1;
-  fL1.Transform(l.Inverse());
-  fL2.Transform(l.Inverse());
+  fL2.SetVectMag(-fL1.Vect(),0.110);
+  fL1CM=fL1;
+  fL2CM=fL2;
+  // fL1.Transform(l.Inverse());
+  //fL2.Transform(l.Inverse());
+  fL1.Boost(fq2.Vect()*(1/fq2.E()));
+  fL2.Boost(fq2.Vect()*(1/fq2.E()));
+  // fL2 = fq2 - fL1;
   Compute();
 }
   void TDDVCSGen:: GenerateDDVCSFlat(){}
@@ -95,6 +101,7 @@ TDDVCSGen::~TDDVCSGen()
     fxbj = fQ2 / (2*fMTarg*(fk.E()-fkp.E()));
     fEta = Delta()*Q()/(P()*Q());
     fXi = Q().Mag2()/(P()*Q());
+    fAngle = fL1.Vect().Angle(fL2.Vect())/TMath::Pi()*180;
   }
   void TDDVCSGen::GenerateScattered()
 {
