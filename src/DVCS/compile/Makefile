@@ -2,14 +2,15 @@ INCDIR = $(shell root-config --incdir)
 LIBS  = $(shell root-config --glibs)
 LD = g++
 
-libTDDVCSGen.so:
-
-%Dict.h:%.h
+all:libTDDVCSGen.so
+#libTDDVCSGen.so:TDDVCSGen.o TDDVCSGenDict.o
+#	$(LD) -shared $(LIBS) $^ -o $@
+#%Dict.h:%.h
 #rootcint -f $@ $^ LinkDef.h
-	rootcint -f -o $@ -c $^ LinkDef.h
+#	rootcint -f -o $@ -c $^ LinkDef.h
 %Dict.C:%.h
-	rootcint -f $@ $^ LinkDef.h
-lib%.so: %.o %Dict.o %Dict.h
+	rootcint  -f $@ -c $^ LinkDef.h
+lib%.so: %.o %Dict.o
 	$(LD) -shared $(LIBS) $^ -o $@
 
 %.o:%.C
@@ -19,4 +20,4 @@ lib%.so: %.o %Dict.o %Dict.h
 	$(CXX) -I $(INCDIR) -c $^
 
 clean:
-	rm *.o *.so
+	rm *.o *.so *Dict.*
