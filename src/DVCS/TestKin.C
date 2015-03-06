@@ -6,7 +6,9 @@
 void TestKin()
 {
   gROOT->ProcessLine(".L TDDVCSGen.C+");
+  ofstream outtext ("LundDDVCS.txt");
   TVector3 ekp;
+  TString lundout;
   // ekp.SetXYZ(1.32*sin(30/180.*TMath::Pi()),1.32*cos(30/180.*TMath::Pi()),0);
   ekp.SetMagThetaPhi(1.32,TMath::Pi()/2,(90-30)/180.*TMath::Pi());
   // ekp.RotateX(90/180.*TMath::Pi());
@@ -26,8 +28,13 @@ void TestKin()
     {
        a->GenerateDDVCS();
        tree->Fill();
+       //     a.Print();
+       lundout=a->Lund();
+       outtext<<lundout.Data();
+  
        if (i%1000==0) cout<<i<<endl;
     }
   tree->Write("T");
+  outtext.close();
   // out->Close();
 }

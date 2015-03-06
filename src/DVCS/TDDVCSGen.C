@@ -33,17 +33,17 @@ TDDVCSGen::~TDDVCSGen()
  void  TDDVCSGen::GenerateDDVCS()
 {
   fGkp->Generate();//scattered electron
-  fGkp->Generate(2,3);//scattered electron
+  fGkp->Generate(1,1.2);//scattered electron
   fq1 = fk - fkp;
-  Double_t DTheta = 12.2;
-  Double_t DPhi = 5;
+  Double_t DTheta =180;
+  Double_t DPhi = 180;
   Double_t Mq=fGq2->Uniform(TMath::Min(1.,-fq1.M()),TMath::Max(1.,-fq1.M()));
   fGq2->SetMass(Mq);
   fGq2->SetThMin(fq1.Theta()/TMath::Pi()*180-DTheta);
   fGq2->SetThMax(fq1.Theta()/TMath::Pi()*180+DTheta);
   fGq2->SetPhiMin(fq1.Phi()/TMath::Pi()*180-DPhi);
   fGq2->SetPhiMax(fq1.Phi()/TMath::Pi()*180+DPhi);
-  fGq2->Generate(1,sqrt(fq1.E()*fq1.E()-Mq*Mq));//generate virtual photon
+  fGq2->Generate(1,fq1.E()-Mq);//generate virtual photon
   //  fq2.SetE(sqrt(fq2.E()+Mq*Mq));
   TLorentzRotation l;
   l.RotateZ(-fq2.Phi());
@@ -65,8 +65,8 @@ TDDVCSGen::~TDDVCSGen()
   fL2CM=fL2;
   // fL1.Transform(l.Inverse());
   //fL2.Transform(l.Inverse());
-  fL1.Boost(fq2.Vect()*(1/fq2.E()));
-  fL2.Boost(fq2.Vect()*(1/fq2.E()));
+  fL1.Boost(fq2.Vect()*(1/fq2.E()/2));
+  fL2.Boost(fq2.Vect()*(1/fq2.E()/2));
   // fL2 = fq2 - fL1;
   Compute();
 }
@@ -135,6 +135,194 @@ void TDDVCSGen::Print()
   cout<<"fL2 :";fL2.Vect().Print();
   cout<<"fDelta :"; fDelta.Vect().Print();
 }
+
+
+TString TDDVCSGen::Lund()
+{
+  TString output;
+  // LUND format
+  //Header
+  //
+// Header Infos
+// Column 	Quantity
+// 1 	Number of particles
+  output+="4 ";
+// 2* 	Number of target nucleons
+  output+="1. ";
+// 3* 	Number of target protons
+  output+="1. ";
+// 4* 	Target Polarization
+  output+="0. ";
+// 5 	Beam Polarization
+  output+="1. ";
+// 6* 	x
+ output+=fxbj; // xbk
+ output+=" ";
+// 7* 	y
+ output+= 1- fkp.E()/fk.E()*cos(fkp.Phi()/2)*cos(fkp.Phi()/2); // y
+ output+=" ";
+// 8* 	W
+ output+= (fk-fkp-fpi).M(); // W
+  output+=" ";
+// 9* 	Q2
+  output+= fQ2; // Q2
+  output+=" ";
+// 10* 	nu
+  output+= fk.E()-fkp.E(); // nu
+  output+="\n";
+  //End Lund header
+
+// Particle Infos
+
+// Column 	Quantity
+// 1 	index
+// 2 	charge
+// 3 	type(=1 is active)
+// 4 	particle id  : 11 e , 2212 p , 2112 n ,13 mu, pi0 111, pi+ 211, gamma 22
+// 5 	parent id (decay bookkeeping)
+// 6 	daughter (decay bookkeeping)
+// 7 	px [GeV]
+// 8 	py [GeV]
+// 9 	pz [GeV]
+// 10 	E [GeV]
+// 11 	mass (not used)
+// 12 	x vertex [cm]
+// 13 	y vertex [cm]
+// 14 	z vertex [cm]
+
+//Scattered electron
+// Column 	Quantity
+// 1 	index
+ output+="1 ";
+// 2 	charge
+ output+="-1 ";
+// 3 	type(=1 is active)
+ output+="1 ";
+// 4 	particle id  11 e
+ output+="11 ";
+// 5 	parent id (decay bookkeeping)
+ output+="0 ";
+// 6 	daughter (decay bookkeeping)
+ output+="0 ";
+// 7 	px [GeV]
+// 8 	py [GeV]
+// 9 	pz [GeV]
+// 10 	E [GeV]
+ output+=::Lund(&fkp);
+// 11 	mass (not used)
+output+="0 ";
+// 12 	x vertex [cm]
+output+="0 ";
+// 13 	y vertex [cm]
+output+="0 ";
+// 14 	z vertex [cm]
+output+="0\n";
+//Scattered proton
+// Column 	Quantity
+// 1 	index
+// 2 	charge
+// 3 	type(=1 is active)
+// 4 	particle id  2212 p
+// 5 	parent id (decay bookkeeping)
+// 6 	daughter (decay bookkeeping)
+// 7 	px [GeV]
+// 8 	py [GeV]
+// 9 	pz [GeV]
+// 10 	E [GeV]
+// 11 	mass (not used)
+// 12 	x vertex [cm]
+// 13 	y vertex [cm]
+// 14 	z vertex [cm]
+// Column 	Quantity
+// 1 	index
+ output+="2 ";
+// 2 	charge
+ output+="1 ";
+// 3 	type(=1 is active)
+ output+="1 ";
+// 4 	particle id  2212 p
+ output+="2212 ";
+// 5 	parent id (decay bookkeeping)
+ output+="0 ";
+// 6 	daughter (decay bookkeeping)
+ output+="0 ";
+// 7 	px [GeV]
+// 8 	py [GeV]
+// 9 	pz [GeV]
+// 10 	E [GeV]
+ output+=::Lund(&fpf);
+// 11 	mass (not used)
+output+="0 ";
+// 12 	x vertex [cm]
+output+="0 ";
+// 13 	y vertex [cm]
+output+="0 ";
+// 14 	z vertex [cm]
+output+="0\n";
+
+
+
+//First muon mu+	particle id 13 mu
+
+// 1 	index
+ output+="3 ";
+// 2 	charge
+ output+="1 ";
+// 3 	type(=1 is active)
+ output+="1 ";
+// 4 	particle id  2212 p
+ output+="13 ";
+// 5 	parent id (decay bookkeeping)
+ output+="0 ";
+// 6 	daughter (decay bookkeeping)
+ output+="0 ";
+// 7 	px [GeV]
+// 8 	py [GeV]
+// 9 	pz [GeV]
+// 10 	E [GeV]
+ output+=::Lund(&fL1);
+// 11 	mass (not used)
+output+="0 ";
+// 12 	x vertex [cm]
+output+="0 ";
+// 13 	y vertex [cm]
+output+="0 ";
+// 14 	z vertex [cm]
+output+="0\n";
+
+
+//Second muon particle id 13 mu
+
+// 1 	index
+ output+="4 ";
+// 2 	charge
+ output+="-1 ";
+// 3 	type(=1 is active)
+ output+="1 ";
+// 4 	particle id  2212 p
+ output+="13 ";
+// 5 	parent id (decay bookkeeping)
+ output+="0 ";
+// 6 	daughter (decay bookkeeping)
+ output+="0 ";
+// 7 	px [GeV]
+// 8 	py [GeV]
+// 9 	pz [GeV]
+// 10 	E [GeV]
+ output+=::Lund(&fL2);
+// 11 	mass (not used)
+output+="0 ";
+// 12 	x vertex [cm]
+output+="0 ";
+// 13 	y vertex [cm]
+output+="0 ";
+// 14 	z vertex [cm]
+output+="0\n";
+
+
+  return output;
+}
+
 
 ClassImp(TDDVCSGen)
 

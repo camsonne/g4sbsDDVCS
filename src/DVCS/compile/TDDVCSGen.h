@@ -119,6 +119,13 @@ class TDDVCSGen : public TObject
   Double_t t(){return Delta().Mag2(); };
   void Compute();
   void Print();
+  TLorentzVector GetBeam() {}
+  TLorentzVector GetPi() {}
+  TLorentzVector GetPf() {}
+  TLorentzVector GetQ1()
+  TLorentzVector GetQ2()
+  TLorentzVector GetL1()
+  TLorentzVector GetL2()
   protected:
   TLorentzVector fk,fkp,fpi,fpf,fp,fq1,fq2,fq2CM,fq,fL1,fL2,fL1CM,fL2CM,fDelta;
   TVector3 fBoostq2;

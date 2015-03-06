@@ -1,9 +1,13 @@
 #include <TLorentzVector.h>
 #include <TLorentzRotation.h>
 #include <TRandom3.h>
+#include <TString.h>
 #include <iostream>
 #ifndef _TDDVCSGEN_
 #define _TDDVCSGEN_
+
+
+
 
 /*
 Root Vector3 angle :
@@ -58,6 +62,7 @@ class TGenPart:public TRandom3
  void Generate();
  void Generate(Double_t Emin,Double_t Emax);
  void GenerateDir(TVector3 dir);
+
   Double_t SetThMin(Double_t v) 
   {
     fThMin=v;
@@ -118,14 +123,31 @@ class TDDVCSGen : public TObject
   Double_t t(){return Delta().Mag2(); };
   void Compute();
   void Print();
+  TString Lund();
   protected:
-  TLorentzVector fk,fkp,fpi,fpf,fp,fq1,fq2,fq,fL1,fL2,fDelta;
+  TLorentzVector fk,fkp,fpi,fpf,fp,fq1,fq2,fq,fL1,fL2,fL1CM,fL2CM,fDelta;
   TGenPart  * fGkp, * fGq2, * fGL1;
   Double_t fDThetaE,fDPhiE,fDPE;
   Double_t fDThetaQ2,fDPhiQ2;
   Double_t fQ2,fxbj,fEta,fXi;
+  Double_t fAngle;
   Double_t fMTarg;
   ClassDef (TDDVCSGen,1);
 }
 ;
 #endif
+
+ TString Lund(TLorentzVector * v)
+ {
+   //return momentum in text Lund Format
+   TString output="";
+   output+= v->Px();
+   output+=" ";
+   output+= v->Py();
+   output+=" ";
+   output+= v->Pz();
+   output+=" ";
+   output+= v->E();
+   output+=" ";
+   return output;
+ }
