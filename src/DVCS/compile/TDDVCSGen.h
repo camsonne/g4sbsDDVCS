@@ -112,12 +112,20 @@ class TDDVCSGen : public TObject
   TLorentzVector Delta(){fDelta =(fq2 - fq1); return fDelta;}
   TLorentzVector Deltap(){fDelta =fpi -fpf; return fDelta;}
   TLorentzVector P(){fp = (fpi+fpf); return fp;};
+  TLorentzVector * GetK() {return &fk;}
+  TLorentzVector * GetKp() {return &fkp;}
+  TLorentzVector * GetL1() {return &fL1;}
+  TLorentzVector * GetL2() {return &fL2;}
+  TLorentzVector * Getq1() {return &fq1;}
+  TLorentzVector * Getq2() {return &fq2;}
+  TLorentzVector * Getp()  {return &fpf;}
    Double_t Xi(){return fXi;};
    Double_t Eta(){return fEta;};
   Double_t Q2() {return fQ2;}
   Double_t xbj(){return fxbj; };
   Double_t t(){return Delta().Mag2(); };
   void Compute();
+<<<<<<< HEAD
   void Print();
   TLorentzVector GetBeam() {}
   TLorentzVector GetPi() {}
@@ -126,6 +134,9 @@ class TDDVCSGen : public TObject
   TLorentzVector GetQ2()
   TLorentzVector GetL1()
   TLorentzVector GetL2()
+=======
+  void Print(); 
+>>>>>>> 2d029541eae5fdbb7c826b0a0179eb10469b81df
   protected:
   TLorentzVector fk,fkp,fpi,fpf,fp,fq1,fq2,fq2CM,fq,fL1,fL2,fL1CM,fL2CM,fDelta;
   TVector3 fBoostq2;

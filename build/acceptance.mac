@@ -23,7 +23,7 @@
 /g4sbs/kine     acc
 /g4sbs/pairPart mu
 /g4sbs/pairCAngle 15 deg
-/g4sbs/pairE 3 GeV
+/g4sbs/pairE 8 GeV
 /g4sbs/target   LH2
 /g4sbs/targlen  40.0 cm
 /g4sbs/beamcur 80 uA

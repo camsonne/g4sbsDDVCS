@@ -4,20 +4,20 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/scratch/camsonne/git/g4sbsDDVCS/g4sbs.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/g4sbs.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSBigBiteField.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSCalHit.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSCalSD.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSDetectorConstruction.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSEventAction.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSEventGen.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSGEMHit.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSGEMSD.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSIO.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSMessenger.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSPrimaryGeneratorAction.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSRunAction.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/G4SBSSteppingAction.cc" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/g4sbs.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/g4sbs.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSBigBiteField.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSCalHit.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSCalSD.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSDetectorConstruction.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSEventAction.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSEventGen.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSGEMHit.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSGEMSD.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSIO.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSMessenger.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSPrimaryGeneratorAction.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSRunAction.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/G4SBSSteppingAction.cc" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -38,7 +38,7 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/DependInfo.cmake"
+  "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
@@ -53,6 +53,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   "/opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include"
   "../src"
+  "../src/DVCS/compile"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

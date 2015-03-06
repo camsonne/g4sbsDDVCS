@@ -54,6 +54,10 @@ public:
 	void SetThMax(double v){fThMax = v;}
 	void SetPhMin(double v){fPhMin = v;}
 	void SetPhMax(double v){fPhMax = v;}
+  	void SetThQ2Min(double v){fThMin = v;}
+	void SetThQ2Max(double v){fThMax = v;}
+	void SetPhQ2Min(double v){fPhMin = v;}
+	void SetPhQ2Max(double v){fPhMax = v;}
         void SetPairE(double v){fPairE = v;}
         void SetQprime2(double v){fQPrime2 = v;}
         void SetPairPart(G4String v){fPairPart = v;}
@@ -78,7 +82,7 @@ public:
        
 	G4ThreeVector fElectronP, fNucleonP, fBeamP, fVert;
         G4LorentzVector fQM,fQP;
-  double fWeight, fQ2, fW2, fxbj, fSigma, fAperp, fApar,fQPrime2;
+  double fWeight, fQ2, fQp2, fThetaL , fW2, fxbj, fSigma, fAperp, fApar,fQPrime2;
         G4String fPairPart; 
 	double fBeamCur;
 	double fRunTime;
@@ -90,6 +94,7 @@ public:
 	Kine_t fKineType;
 
 	double fThMin, fThMax, fPhMin, fPhMax;
+  	double fThQ2Min, fThQ2Max, fPhQ2Min, fPhQ2Max;
 	double fTargLen, fRasterX, fRasterY, fTargDen;
 	double fPmisspar, fPmissperp, fPmissparSm;
 	double fHCALdist, fToFres;

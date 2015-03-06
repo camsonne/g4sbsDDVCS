@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/local/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /scratch/camsonne/git/g4sbsDDVCS
+CMAKE_SOURCE_DIR = /home/camsonne/Git/g4sbsDDVCS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /scratch/camsonne/git/g4sbsDDVCS/build
+CMAKE_BINARY_DIR = /home/camsonne/Git/g4sbsDDVCS/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/sbscteq.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/sbscteq.dir/flags.make
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o: CMakeFiles/sbscteq.dir/flags.make
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o: ../src/cteq/cteqpdf.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o   -c /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o   -c /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf.c
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -E /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.c > CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -E /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf.c > CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.i
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -S /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.c -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -S /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf.c -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.s
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o.requires:
 .PHONY : CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o.requires
@@ -77,17 +77,17 @@ CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o.provides.build: CMakeFiles/sbscteq.d
 
 CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o: CMakeFiles/sbscteq.dir/flags.make
 CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o: ../src/cteq/cteq-database.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -o CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o   -c /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteq-database.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -o CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o   -c /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteq-database.c
 
 CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -E /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteq-database.c > CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -E /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteq-database.c > CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.i
 
 CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -S /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteq-database.c -o CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -S /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteq-database.c -o CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.s
 
 CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o.requires:
 .PHONY : CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o.requires
@@ -100,17 +100,17 @@ CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o.provides.build: CMakeFiles/sbs
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o: CMakeFiles/sbscteq.dir/flags.make
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o: ../src/cteq/cteqpdf-f77.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o   -c /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o   -c /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -E /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c > CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -E /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c > CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.i
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/scratch/camsonne/git/g4sbsDDVCS/cteq-tbls\" -S /scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -DCTEQ_TBL_PATH=\"/home/camsonne/Git/g4sbsDDVCS/cteq-tbls\" -S /home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c -o CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.s
 
 CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o.requires:
 .PHONY : CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o.requires
@@ -153,6 +153,6 @@ CMakeFiles/sbscteq.dir/clean:
 .PHONY : CMakeFiles/sbscteq.dir/clean
 
 CMakeFiles/sbscteq.dir/depend:
-	cd /scratch/camsonne/git/g4sbsDDVCS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /scratch/camsonne/git/g4sbsDDVCS /scratch/camsonne/git/g4sbsDDVCS /scratch/camsonne/git/g4sbsDDVCS/build /scratch/camsonne/git/g4sbsDDVCS/build /scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/camsonne/Git/g4sbsDDVCS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/camsonne/Git/g4sbsDDVCS /home/camsonne/Git/g4sbsDDVCS /home/camsonne/Git/g4sbsDDVCS/build /home/camsonne/Git/g4sbsDDVCS/build /home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sbscteq.dir/depend
 

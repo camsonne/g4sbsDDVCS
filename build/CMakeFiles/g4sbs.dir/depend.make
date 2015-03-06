@@ -10,6 +10,8 @@ CMakeFiles/g4sbs.dir/g4sbs.cc.o: ../include/G4SBSPrimaryGeneratorAction.hh
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: ../include/G4SBSRunAction.hh
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: ../include/G4SBSSteppingAction.hh
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: ../include/sbstypes.hh
+CMakeFiles/g4sbs.dir/g4sbs.cc.o: ../src/DVCS/compile/TDDVCSGen.h
+CMakeFiles/g4sbs.dir/g4sbs.cc.o: ../g4sbs.cc
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Plane3D.h
@@ -711,6 +713,7 @@ CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TGenericClassInfo.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TIterator.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TList.h
+CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzRotation.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzVector.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMath.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMathBase.h
@@ -727,6 +730,8 @@ CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TNamed.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObject.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TROOT.h
+CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom.h
+CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom3.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRotation.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSchemaHelper.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSeqCollection.h
@@ -740,9 +745,9 @@ CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TVersionCheck.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/snprintf.h
 CMakeFiles/g4sbs.dir/g4sbs.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/strlcpy.h
-CMakeFiles/g4sbs.dir/g4sbs.cc.o: ../g4sbs.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: ../include/G4SBSBigBiteField.hh
+CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: ../src/G4SBSBigBiteField.cc
 CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/PhysicalConstants.h
 CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/SystemOfUnits.h
 CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/defs.h
@@ -790,9 +795,9 @@ CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: /opt/jlab_software/Linux_RHEL6-
 CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TString.h
 CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/snprintf.h
 CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/strlcpy.h
-CMakeFiles/g4sbs.dir/src/G4SBSBigBiteField.cc.o: ../src/G4SBSBigBiteField.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: ../include/G4SBSCalHit.hh
+CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: ../src/G4SBSCalHit.cc
 CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Point3D.h
@@ -850,10 +855,10 @@ CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64
 CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/geomdefs.hh
 CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/globals.hh
 CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/templates.hh
-CMakeFiles/g4sbs.dir/src/G4SBSCalHit.cc.o: ../src/G4SBSCalHit.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: ../include/G4SBSCalHit.hh
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: ../include/G4SBSCalSD.hh
+CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: ../src/G4SBSCalSD.cc
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Point3D.h
@@ -975,7 +980,6 @@ CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/geomdefs.hh
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/globals.hh
 CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/templates.hh
-CMakeFiles/g4sbs.dir/src/G4SBSCalSD.cc.o: ../src/G4SBSCalSD.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../include/G4SBSBigBiteField.hh
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../include/G4SBSCalHit.hh
@@ -984,6 +988,7 @@ CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../include/G4SBSDetecto
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../include/G4SBSGEMHit.hh
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../include/G4SBSGEMSD.hh
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../include/sbstypes.hh
+CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../src/G4SBSDetectorConstruction.cc
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Point3D.h
@@ -1156,7 +1161,6 @@ CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: /opt/jlab_software/Linu
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/geomdefs.hh
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/globals.hh
 CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/templates.hh
-CMakeFiles/g4sbs.dir/src/G4SBSDetectorConstruction.cc.o: ../src/G4SBSDetectorConstruction.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../include/G4SBSCalHit.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../include/G4SBSEventAction.hh
@@ -1164,6 +1168,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../include/G4SBSEventGen.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../include/G4SBSGEMHit.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../include/G4SBSIO.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../include/sbstypes.hh
+CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../src/DVCS/compile/TDDVCSGen.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../src/G4SBSEventAction.cc
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Point3D.h
@@ -1441,6 +1447,7 @@ CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TGenericClassInfo.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TIterator.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TList.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzVector.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMath.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMathBase.h
@@ -1459,6 +1466,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TNamed.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObject.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TROOT.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom3.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSchemaHelper.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSeqCollection.h
@@ -1475,14 +1484,15 @@ CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TVersionCheck.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/snprintf.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/strlcpy.h
-CMakeFiles/g4sbs.dir/src/G4SBSEventAction.cc.o: ../src/G4SBSEventAction.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../include/G4SBSDIS.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../include/G4SBSEventGen.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../include/G4SBSIO.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../include/G4SBSInelastic.hh
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../include/sbstypes.hh
+CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../src/DVCS/compile/TDDVCSGen.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../src/cteq/cteqpdf.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../src/G4SBSEventGen.cc
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Random/RandFlat.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Random/RandFlat.icc
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Random/RandGauss.h
@@ -1544,6 +1554,7 @@ CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TGenericClassInfo.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TIterator.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TList.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzVector.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMath.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMathBase.h
@@ -1560,6 +1571,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TNamed.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObject.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TROOT.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom.h
+CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom3.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSchemaHelper.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSeqCollection.h
@@ -1573,9 +1586,9 @@ CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TVersionCheck.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/snprintf.h
 CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/strlcpy.h
-CMakeFiles/g4sbs.dir/src/G4SBSEventGen.cc.o: ../src/G4SBSEventGen.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: ../include/G4SBSGEMHit.hh
+CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: ../src/G4SBSGEMHit.cc
 CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Point3D.h
@@ -1633,10 +1646,10 @@ CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64
 CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/geomdefs.hh
 CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/globals.hh
 CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/templates.hh
-CMakeFiles/g4sbs.dir/src/G4SBSGEMHit.cc.o: ../src/G4SBSGEMHit.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: ../include/G4SBSGEMHit.hh
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: ../include/G4SBSGEMSD.hh
+CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: ../src/G4SBSGEMSD.cc
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Point3D.h
@@ -1758,9 +1771,10 @@ CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/geomdefs.hh
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/globals.hh
 CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/templates.hh
-CMakeFiles/g4sbs.dir/src/G4SBSGEMSD.cc.o: ../src/G4SBSGEMSD.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: ../include/G4SBSIO.hh
+CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: ../src/DVCS/compile/TDDVCSGen.h
+CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: ../src/G4SBSIO.cc
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/PhysicalConstants.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/SystemOfUnits.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/defs.h
@@ -1810,6 +1824,7 @@ CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/THashTable.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TIterator.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TList.h
+CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzVector.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMap.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMath.h
@@ -1829,6 +1844,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObjString.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObject.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TROOT.h
+CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom.h
+CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom3.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSchemaHelper.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSeqCollection.h
@@ -1845,7 +1862,6 @@ CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TVirtualTreePlayer.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/snprintf.h
 CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/strlcpy.h
-CMakeFiles/g4sbs.dir/src/G4SBSIO.cc.o: ../src/G4SBSIO.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../include/G4SBSBigBiteField.hh
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../include/G4SBSDetectorConstruction.hh
@@ -1855,6 +1871,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../include/G4SBSIO.hh
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../include/G4SBSMessenger.hh
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../include/G4SBSPrimaryGeneratorAction.hh
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../include/sbstypes.hh
+CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../src/DVCS/compile/TDDVCSGen.h
+CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../src/G4SBSMessenger.cc
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Evaluator/Evaluator.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
@@ -2193,6 +2211,7 @@ CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TGenericClassInfo.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TIterator.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TList.h
+CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzVector.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMath.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMathBase.h
@@ -2209,6 +2228,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TNamed.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObject.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TROOT.h
+CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom.h
+CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom3.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSchemaHelper.h
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSeqCollection.h
@@ -2363,12 +2384,14 @@ CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/xercesc/3.1.1/include/xercesc/validators/common/Grammar.hpp
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/xercesc/3.1.1/include/xercesc/validators/datatype/DatatypeValidator.hpp
 CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/xercesc/3.1.1/include/xercesc/validators/schema/SchemaSymbols.hpp
-CMakeFiles/g4sbs.dir/src/G4SBSMessenger.cc.o: ../src/G4SBSMessenger.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../include/G4SBSEventGen.hh
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../include/G4SBSIO.hh
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../include/G4SBSPrimaryGeneratorAction.hh
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../include/sbstypes.hh
+CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../src/DVCS/compile/TDDVCSGen.h
+CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../src/DVCS/TDDVCSGen.h
+CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../src/G4SBSPrimaryGeneratorAction.cc
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Random/RandFlat.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Random/RandFlat.icc
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Random/RandGauss.h
@@ -2438,6 +2461,7 @@ CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Li
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TGenericClassInfo.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TIterator.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TList.h
+CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzVector.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMath.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMathBase.h
@@ -2454,6 +2478,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Li
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TNamed.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObject.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TROOT.h
+CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom.h
+CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom3.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSchemaHelper.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSeqCollection.h
@@ -2467,10 +2493,11 @@ CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Li
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TVersionCheck.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/snprintf.h
 CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/strlcpy.h
-CMakeFiles/g4sbs.dir/src/G4SBSPrimaryGeneratorAction.cc.o: ../src/G4SBSPrimaryGeneratorAction.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: ../include/G4SBSIO.hh
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: ../include/G4SBSRunAction.hh
+CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: ../src/DVCS/compile/TDDVCSGen.h
+CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: ../src/G4SBSRunAction.cc
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/PhysicalConstants.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/SystemOfUnits.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Units/defs.h
@@ -2512,6 +2539,7 @@ CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TGenericClassInfo.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TIterator.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TList.h
+CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TLorentzVector.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMath.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TMathBase.h
@@ -2528,6 +2556,8 @@ CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TNamed.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TObject.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TROOT.h
+CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom.h
+CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRandom3.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TRotation.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSchemaHelper.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TSeqCollection.h
@@ -2541,9 +2571,9 @@ CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/TVersionCheck.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/snprintf.h
 CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include/strlcpy.h
-CMakeFiles/g4sbs.dir/src/G4SBSRunAction.cc.o: ../src/G4SBSRunAction.cc
 
 CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: ../include/G4SBSSteppingAction.hh
+CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: ../src/G4SBSSteppingAction.cc
 CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/clhep/2.1.3.1/include/CLHEP/Geometry/Point3D.h
@@ -2766,5 +2796,4 @@ CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: /opt/jlab_software/Linux_RHEL
 CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/geomdefs.hh
 CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/globals.hh
 CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: /opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/geant4/4.9.6.p01/include/Geant4/templates.hh
-CMakeFiles/g4sbs.dir/src/G4SBSSteppingAction.cc.o: ../src/G4SBSSteppingAction.cc
 

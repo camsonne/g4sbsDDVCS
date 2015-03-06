@@ -4,9 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteq-database.c" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o"
-  "/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.c" "/scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/cteq/cteq-database.c" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/src/cteq/cteq-database.c.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/src/cteq/cteqpdf-f77.c.o"
+  "/home/camsonne/Git/g4sbsDDVCS/src/cteq/cteqpdf.c" "/home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/sbscteq.dir/src/cteq/cteqpdf.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -41,6 +41,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   "/opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include"
   "../src"
+  "../src/DVCS/compile"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

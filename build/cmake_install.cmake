@@ -1,4 +1,4 @@
-# Install script for directory: /scratch/camsonne/git/g4sbsDDVCS
+# Install script for directory: /home/camsonne/Git/g4sbsDDVCS
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4sbs"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/scratch/camsonne/git/g4sbsDDVCS/build/g4sbs")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/camsonne/Git/g4sbsDDVCS/build/g4sbs")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4sbs" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4sbs")
     FILE(RPATH_REMOVE
@@ -56,7 +56,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/scratch/camsonne/git/g4sbsDDVCS/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/camsonne/Git/g4sbsDDVCS/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/scratch/camsonne/git/g4sbsDDVCS/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/camsonne/Git/g4sbsDDVCS/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

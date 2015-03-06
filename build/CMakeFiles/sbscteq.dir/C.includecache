@@ -6,33 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteq-database.c
-string.h
--
-cteqpdf.h
-/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
-
-/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf-f77.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-cteqpdf.h
-/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
-
-/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.c
-math.h
--
-stdio.h
--
-stdlib.h
--
-string.h
--
-cteqpdf.h
-/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
-
-/scratch/camsonne/git/g4sbsDDVCS/src/cteq/cteqpdf.h
-

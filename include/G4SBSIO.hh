@@ -6,6 +6,7 @@
 #include "TObject.h"
 #include "G4Run.hh"
 #include "G4LorentzVector.hh"
+#include "TDDVCSGen.h"
 
 class TFile;
 class TTree;
@@ -13,7 +14,7 @@ class TTree;
 #define MAXHITDATA 10000
 
 typedef struct {
-    Double_t thbb, thhcal, dbb, dhcal, Ebeam;
+  Double_t thbb, thhcal, dbb, dhcal, Ebeam;
 } gen_t;
 
 
@@ -62,6 +63,10 @@ class G4SBSIO {
     public:
 	G4SBSIO();
 	~G4SBSIO();
+  TDDVCSGen * GetDVCS()
+  {
+    return &dvcsevent;
+  }
 
 	void SetFilename(const char *fn){strcpy(fFilename, fn);}
 	void SetTrackData(tr_t td){ trdata = td; }
@@ -97,16 +102,17 @@ class G4SBSIO {
 	ev_t GetEventData(){ return evdata; }
 
 	void InitializeTree();
-    private:
-	TFile *fFile;
-	TTree *fTree;
-        TLorentzVector pairPgen, pairMgen;
-	ev_t evdata;
-	gen_t gendata;
-	tr_t trdata;
-	cal_t caldata;
-  	cal_t cal2data;
-	hit_t hitdata;
+private:
+  TFile *fFile;
+  TTree *fTree;
+  TLorentzVector pairPgen, pairMgen;
+  TDDVCSGen dvcsevent;
+  ev_t evdata;
+  gen_t gendata;
+  tr_t trdata;
+  cal_t caldata;
+  cal_t cal2data;
+  hit_t hitdata;
   TLorentzVector fQm,fQp;
 	char fFilename[255];
 

@@ -122,8 +122,12 @@ void G4SBSEventGen::GenerateEvent(){
 	case kFlat:
 	    GenerateFlat( thisnucl, ei, ni );
 	case kPair:
+	  GeneratePair( );
+	    break;
+	case kDDVCS:
 	  GenerateDDVCS( thisnucl, ei, ni );
 	    break;
+
 	case kBeam:
 	    fVert.setZ( -5.0*m ); // Set at something upstream if just simple beam
 	    GenerateBeam( thisnucl, ei, ni );
@@ -557,22 +561,24 @@ void G4SBSEventGen::GeneratePairAcc(){
    double phi=CLHEP::RandFlat::shoot(-10.,10.);
    double theta2=CLHEP::RandFlat::shoot(-10.,10.); 
    double phi2=CLHEP::RandFlat::shoot(-10,10.);
+   double Energy1=CLHEP::RandFlat::shoot(1.,fPairE);
+   double Energy2=CLHEP::RandFlat::shoot(1.,fPairE-Energy1);
    //double E=CLHEP::RandFlat::shoot(-10,10.);
-   pairm.setRThetaPhi(fPairE,(fPairCAngle)+theta*deg,fPairPhiAngle+phi);
-   pairp.setRThetaPhi(fPairE,(fPairCAngle)+theta2*deg,-fPairPhiAngle+phi2);
+   pairm.setRThetaPhi(Energy1,(fPairCAngle)+theta*deg,fPairPhiAngle+phi);
+   pairp.setRThetaPhi(Energy2,(fPairCAngle)+theta2*deg,-fPairPhiAngle+phi2);
    //rotax.setRThetaPhi(fPairE,(fPairCAngle),phi*deg);
    //  printf("Rotate by %f \n",fPairRotAngle);
    // pairrot.rotate(fPairRotAngle,rotax);
    pairm = pairrot * pairm;
    pairp = pairrot * pairp;
-   fQP.setRThetaPhi(fPairE,pairp.theta(),pairp.phi());
-   fQM.setRThetaPhi(fPairE,pairm.theta(),pairm.phi());
+   fQP.setRThetaPhi(Energy1,pairp.theta(),pairp.phi());
+   fQM.setRThetaPhi(Energy2,pairm.theta(),pairm.phi());
 
    // mu1.setE(sbsgen->GetBeamE());
    // mu2.setE(sbsgen->GetBeamE());
    Double_t rE =  CLHEP::RandFlat::shoot(1.,5.);
-   fQP.setE(fPairE);
-   fQM.setE(fPairE);
+   fQP.setE(Energy1);
+   fQM.setE(Energy2);
   
  //  double MuonMass = 105.7 * MeV;
  //  // qplus + qminus = qprime
@@ -653,7 +659,7 @@ void G4SBSEventGen::GeneratePairSym(double theta,double phi, double Qprime2,  G4
 
 
 void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, double_t Qprime2, G4LorentzVector ei, G4LorentzVector ni){
-    double minE = 0.*GeV;
+    double minE = 1.*GeV;
     double Mp = proton_mass_c2;
 
     G4ThreeVector pboost = -1.0*(ni.boostVector());
@@ -706,18 +712,24 @@ void G4SBSEventGen::GenerateDDVCS( Nucl_t nucl, double_t Qprime2, G4LorentzVecto
     // This is the invariant mass of the system
     // Let's assume single pion decay from that
     //Generate proton momentum
+
+    double EQ2 = CLHEP::RandFlat::shoot(0., q.e()-1*GeV);
+    double ThQ2 = CLHEP::RandFlat::shoot(fThMax,fThMin );
+    double PhiQ2 = CLHEP::RandFlat::shoot(fPhMin,fPhMax);
+    double Eproton = q.e() - EQ2;
     double Pproton = CLHEP::RandFlat::shoot(0., q.e());
-    double ThProton = CLHEP::RandFlat::shoot(0., 180.);
-    double PhiProton = CLHEP::RandFlat::shoot(0.,360.);
-    double Ephoton = q.e() - Pproton;
-    double Pphoton = CLHEP::RandFlat::shoot(0., q.e());
     G4LorentzVector L4P;
-    L4P.setRThetaPhi(Pproton,ThProton,PhiProton);
+    G4ThreeVector L3P;
+    L4P.vect().setRThetaPhi(EQ2,ThQ2, PhiQ2);
     //Generate outgoing virtual photon
     G4LorentzVector L4qp = q - L4P; 
     double LE1 = CLHEP::RandFlat::shoot(0., L4qp.e());
-    double ThL1 = CLHEP::RandFlat::shoot(0., 180.);
-    double PhiL1 = CLHEP::RandFlat::shoot(0.,360.);
+    double ThL1 = CLHEP::RandFlat::shoot(-20.,20.);
+    double PhiL1 = CLHEP::RandFlat::shoot(-20,20.);
+    fQM.vect().setRThetaPhi(LE1,ThL1*deg+fPairCAngle*deg,PhiL1*deg+fPairPhiAngle);
+    fQP= L4qp-fQM;
+    fQp2= L4qp.mag2();
+    fThetaL = acos((fQP.vect()*fQM.vect())/(fQP.mag()*fQM.mag()));
     //Generate second outgoing  Lepton
     // Momenum conservation
     //Generate first lepton

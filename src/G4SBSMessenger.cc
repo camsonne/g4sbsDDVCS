@@ -216,6 +216,10 @@ void G4SBSMessenger::SetNewValue(G4UIcommand* cmd, G4String newValue){
 
     if( cmd == kineCmd ){
 	bool validcmd = false;
+	if( newValue.compareTo("ddvcs") == 0 ){
+	    fevgen->SetKine(kDDVCS);
+	    validcmd = true;
+	}
 	if( newValue.compareTo("elastic") == 0 ){
 	    fevgen->SetKine(kElastic);
 	    validcmd = true;

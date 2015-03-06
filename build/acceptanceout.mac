@@ -22,11 +22,15 @@
 /g4sbs/phmax     180.1 deg
 /g4sbs/kine     acc
 /g4sbs/pairPart mu
-/g4sbs/pairE 3 GeV
+/g4sbs/pairE 6 GeV
 
-/g4sbs/filename acceptance.root
+/g4sbs/filename acceptance1.root
 /g4sbs/exp     gep
-/g4sbs/run 10000
+/g4sbs/run 70000
+
+/g4sbs/filename acceptance2.root
+/g4sbs/exp     gep
+/g4sbs/run 70000
 # Use this open statement to create an OpenGL view:
 #/vis/open OGLSQt
 #

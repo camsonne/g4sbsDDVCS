@@ -3,6 +3,7 @@
 #include <TFile.h>
 #include <TTree.h>
 #include <TClonesArray.h>
+#include <TDDVCSGen.h>
 
 G4SBSIO::G4SBSIO(){
     fTree = NULL;
@@ -35,6 +36,7 @@ void G4SBSIO::InitializeTree(){
     fTree->Branch("gen", &gendata, "thbb/D:thhcal/D:dbb/D:dhcal/D:Ebeam/D");
     fTree->Branch("pairPgen",&pairPgen,10000,1);
      fTree->Branch("pairMgen",&pairMgen,10000,1);
+     fTree->Branch("ddvcs",&dvcsevent,32000,99);
     // Tedious, but we want dynamically scaled
     fTree->Branch("ht.ndata", &hitdata.ndata, "ht.ndata/I");
     fTree->Branch("ht.gid", &hitdata.gid, "ht.gid[ht.ndata]/I");

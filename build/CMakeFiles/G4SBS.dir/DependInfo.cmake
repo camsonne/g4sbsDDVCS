@@ -34,6 +34,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   "/opt/jlab_software/Linux_RHEL6-x86_64-gcc4.4.7/root/5.34/include"
   "../src"
+  "../src/DVCS/compile"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

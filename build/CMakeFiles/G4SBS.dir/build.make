@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/local/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /scratch/camsonne/git/g4sbsDDVCS
+CMAKE_SOURCE_DIR = /home/camsonne/Git/g4sbsDDVCS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /scratch/camsonne/git/g4sbsDDVCS/build
+CMAKE_BINARY_DIR = /home/camsonne/Git/g4sbsDDVCS/build
 
 # Utility rule file for G4SBS.
 
@@ -63,6 +63,6 @@ CMakeFiles/G4SBS.dir/clean:
 .PHONY : CMakeFiles/G4SBS.dir/clean
 
 CMakeFiles/G4SBS.dir/depend:
-	cd /scratch/camsonne/git/g4sbsDDVCS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /scratch/camsonne/git/g4sbsDDVCS /scratch/camsonne/git/g4sbsDDVCS /scratch/camsonne/git/g4sbsDDVCS/build /scratch/camsonne/git/g4sbsDDVCS/build /scratch/camsonne/git/g4sbsDDVCS/build/CMakeFiles/G4SBS.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/camsonne/Git/g4sbsDDVCS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/camsonne/Git/g4sbsDDVCS /home/camsonne/Git/g4sbsDDVCS /home/camsonne/Git/g4sbsDDVCS/build /home/camsonne/Git/g4sbsDDVCS/build /home/camsonne/Git/g4sbsDDVCS/build/CMakeFiles/G4SBS.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/G4SBS.dir/depend
 
